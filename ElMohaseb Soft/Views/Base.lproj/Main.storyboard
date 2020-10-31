@@ -353,7 +353,7 @@
                                         <state key="normal" backgroundImage="Button More"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kM-Ra-ObH">
-                                        <rect key="frame" x="283" y="16" width="20" height="20"/>
+                                        <rect key="frame" x="283" y="15.999999999999998" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="gO7-3W-D54"/>
                                             <constraint firstAttribute="height" constant="20" id="tNk-bY-lg1"/>
@@ -404,7 +404,7 @@
                                                 <fragment content="المخزن الرئيسي">
                                                     <attributes>
                                                         <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <font key="NSFont" size="17" name=".ArabicUIText-Regular"/>
+                                                        <font key="NSFont" metaFont="system" size="17"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         <integer key="NSUnderline" value="1"/>
                                                     </attributes>
@@ -422,7 +422,7 @@
                                                 <fragment content="محلي">
                                                     <attributes>
                                                         <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="17" name=".ArabicUIText-Regular"/>
+                                                        <font key="NSFont" metaFont="system" size="17"/>
                                                         <integer key="NSUnderline" value="1"/>
                                                     </attributes>
                                                 </fragment>
@@ -430,14 +430,14 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzO-5I-mvU">
-                                        <rect key="frame" x="329.66666666666669" y="91" width="35.333333333333314" height="18"/>
+                                        <rect key="frame" x="317" y="91" width="48" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="wSa-r3-VFI"/>
                                         </constraints>
                                         <attributedString key="attributedText">
                                             <fragment content="العميل">
                                                 <attributes>
-                                                    <font key="NSFont" size="18" name=".ArabicUIText-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="18"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     <integer key="NSUnderline" value="1"/>
                                                 </attributes>
@@ -446,23 +446,15 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="653-HX-jgd">
-                                        <rect key="frame" x="315" y="130" width="50" height="18"/>
+                                        <rect key="frame" x="304.33333333333331" y="130" width="60.666666666666686" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="T7A-Xl-bpu"/>
                                         </constraints>
                                         <attributedString key="attributedText">
-                                            <fragment content="ملاحظات">
+                                            <fragment content="ملاحظات/#">
                                                 <attributes>
                                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="13" name=".ArabicUIText-Regular"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    <integer key="NSUnderline" value="1"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="/#">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="13" name=".SFNS-Regular"/>
+                                                    <font key="NSFont" metaFont="system"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     <integer key="NSUnderline" value="1"/>
                                                 </attributes>
@@ -471,10 +463,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fa9-JS-1Hc">
-                                        <rect key="frame" x="107" y="83" width="201" height="36"/>
+                                        <rect key="frame" x="107.00000000000001" y="83" width="188.33333333333337" height="36"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2K8-Gv-Mnt">
-                                                <rect key="frame" x="0.0" y="0.0" width="201" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="188.33333333333334" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="yiR-HY-uHH"/>
                                                 </constraints>
@@ -482,7 +474,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCL-dG-mrw">
-                                                <rect key="frame" x="0.0" y="35" width="201" height="1"/>
+                                                <rect key="frame" x="0.0" y="35" width="188.33333333333334" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="zk2-ZH-v38"/>
@@ -501,13 +493,13 @@
                                         </state>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="vgo-Pu-fkf">
-                                        <rect key="frame" x="8" y="130" width="298" height="18"/>
+                                        <rect key="frame" x="8" y="130" width="287.33333333333331" height="18"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="A8Q-Sg-gLE">
-                                                <rect key="frame" x="0.0" y="0.0" width="171" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="160.33333333333334" height="18"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ملاحظــات" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BAF-kd-nRJ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="160.33333333333334" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="uhr-7l-0uJ"/>
                                                         </constraints>
@@ -515,7 +507,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dr6-jG-jfG">
-                                                        <rect key="frame" x="0.0" y="17" width="171" height="1"/>
+                                                        <rect key="frame" x="0.0" y="17" width="160.33333333333334" height="1"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="BhG-ZV-gO5"/>
@@ -524,7 +516,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u6Q-nY-llV">
-                                                <rect key="frame" x="189" y="0.0" width="109" height="18"/>
+                                                <rect key="frame" x="178.33333333333334" y="0.0" width="109.00000000000003" height="18"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="رقم#56" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PQH-BY-JIR">
                                                         <rect key="frame" x="0.0" y="0.0" width="109" height="17"/>
