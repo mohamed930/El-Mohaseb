@@ -1,0 +1,6 @@
+framework module Pods_ElMohaseb_Soft {
+  umbrella header "Pods-ElMohaseb Soft-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,24 @@
+PODS:
+  - DropDown (2.3.13)
+  - IQKeyboardManagerSwift (6.5.6)
+  - YCActionSheetDatePicker (1.0.0)
+
+DEPENDENCIES:
+  - DropDown
+  - IQKeyboardManagerSwift
+  - YCActionSheetDatePicker
+
+SPEC REPOS:
+  trunk:
+    - DropDown
+    - IQKeyboardManagerSwift
+    - YCActionSheetDatePicker
+
+SPEC CHECKSUMS:
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  YCActionSheetDatePicker: c0c445f377ba2a0f873e4e5197ded5661e0ce09c
+
+PODFILE CHECKSUM: c2bded6dd163c3cf0ec717ae2a3d6066bc7d5b3a
+
+COCOAPODS: 1.9.1

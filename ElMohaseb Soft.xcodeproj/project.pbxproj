@@ -3,12 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9FDD9A92832B9A030C62704A /* Pods_ElMohaseb_Soft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD924432FDE74A1206CEAD7 /* Pods_ElMohaseb_Soft.framework */; };
+		D3355201254EC1DE00F3732A /* ReseteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33551FF254EC1DE00F3732A /* ReseteCell.swift */; };
+		D3355202254EC1DE00F3732A /* ReseteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3355200254EC1DE00F3732A /* ReseteCell.xib */; };
+		D3355205254ED0C700F3732A /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3355204254ED0C700F3732A /* Tools.swift */; };
+		D3355207254ED1A700F3732A /* SalesHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3355206254ED1A700F3732A /* SalesHomeViewController.swift */; };
+		D3355209254ED1D200F3732A /* HomeSalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3355208254ED1D200F3732A /* HomeSalesView.swift */; };
+		D335520C254ED36900F3732A /* Reports.swift in Sources */ = {isa = PBXBuildFile; fileRef = D335520B254ED36900F3732A /* Reports.swift */; };
+		D335520E254EE20900F3732A /* AddSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D335520D254EE20900F3732A /* AddSaleViewController.swift */; };
+		D3355210254EE23000F3732A /* AddSaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D335520F254EE23000F3732A /* AddSaleView.swift */; };
+		D3355212254EE9A300F3732A /* color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3355211254EE9A300F3732A /* color.swift */; };
+		D3355215254F220B00F3732A /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3355213254F220B00F3732A /* ProductsCell.swift */; };
+		D3355216254F220B00F3732A /* ProductsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3355214254F220B00F3732A /* ProductsCell.xib */; };
+		D3355218254F248700F3732A /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3355217254F248700F3732A /* Products.swift */; };
+		D335521A254F383500F3732A /* AddProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3355219254F383500F3732A /* AddProductsViewController.swift */; };
+		D335521C254F385600F3732A /* AddProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D335521B254F385600F3732A /* AddProductsView.swift */; };
 		D35FFD4B254D7C51006F8654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35FFD4A254D7C51006F8654 /* AppDelegate.swift */; };
-		D35FFD4F254D7C51006F8654 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35FFD4E254D7C51006F8654 /* ViewController.swift */; };
+		D35FFD4F254D7C51006F8654 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35FFD4E254D7C51006F8654 /* HomeViewController.swift */; };
 		D35FFD52254D7C51006F8654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35FFD50254D7C51006F8654 /* Main.storyboard */; };
 		D35FFD55254D7C51006F8654 /* ElMohaseb_Soft.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D35FFD53254D7C51006F8654 /* ElMohaseb_Soft.xcdatamodeld */; };
 		D35FFD57254D7C66006F8654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D35FFD56254D7C66006F8654 /* Assets.xcassets */; };
@@ -16,14 +31,31 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F6644746E90C0585E46BF72 /* Pods-ElMohaseb Soft.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElMohaseb Soft.debug.xcconfig"; path = "Target Support Files/Pods-ElMohaseb Soft/Pods-ElMohaseb Soft.debug.xcconfig"; sourceTree = "<group>"; };
+		D33551FF254EC1DE00F3732A /* ReseteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReseteCell.swift; sourceTree = "<group>"; };
+		D3355200254EC1DE00F3732A /* ReseteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReseteCell.xib; sourceTree = "<group>"; };
+		D3355204254ED0C700F3732A /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		D3355206254ED1A700F3732A /* SalesHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHomeViewController.swift; sourceTree = "<group>"; };
+		D3355208254ED1D200F3732A /* HomeSalesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSalesView.swift; sourceTree = "<group>"; };
+		D335520B254ED36900F3732A /* Reports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
+		D335520D254EE20900F3732A /* AddSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSaleViewController.swift; sourceTree = "<group>"; };
+		D335520F254EE23000F3732A /* AddSaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSaleView.swift; sourceTree = "<group>"; };
+		D3355211254EE9A300F3732A /* color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = color.swift; sourceTree = "<group>"; };
+		D3355213254F220B00F3732A /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
+		D3355214254F220B00F3732A /* ProductsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsCell.xib; sourceTree = "<group>"; };
+		D3355217254F248700F3732A /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		D3355219254F383500F3732A /* AddProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsViewController.swift; sourceTree = "<group>"; };
+		D335521B254F385600F3732A /* AddProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsView.swift; sourceTree = "<group>"; };
 		D35FFD47254D7C51006F8654 /* ElMohaseb Soft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ElMohaseb Soft.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35FFD4A254D7C51006F8654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D35FFD4E254D7C51006F8654 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D35FFD4E254D7C51006F8654 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D35FFD51254D7C51006F8654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D35FFD54254D7C51006F8654 /* ElMohaseb_Soft.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ElMohaseb_Soft.xcdatamodel; sourceTree = "<group>"; };
 		D35FFD56254D7C66006F8654 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D35FFD59254D7C66006F8654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D35FFD5B254D7C66006F8654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E404D5B0FED93E2E7FF86B4C /* Pods-ElMohaseb Soft.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElMohaseb Soft.release.xcconfig"; path = "Target Support Files/Pods-ElMohaseb Soft/Pods-ElMohaseb Soft.release.xcconfig"; sourceTree = "<group>"; };
+		FCD924432FDE74A1206CEAD7 /* Pods_ElMohaseb_Soft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElMohaseb_Soft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +63,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FDD9A92832B9A030C62704A /* Pods_ElMohaseb_Soft.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48D6C35AA892AFF919B54502 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F6644746E90C0585E46BF72 /* Pods-ElMohaseb Soft.debug.xcconfig */,
+				E404D5B0FED93E2E7FF86B4C /* Pods-ElMohaseb Soft.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D33551FE254EB86200F3732A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D33551FF254EC1DE00F3732A /* ReseteCell.swift */,
+				D3355200254EC1DE00F3732A /* ReseteCell.xib */,
+				D3355213254F220B00F3732A /* ProductsCell.swift */,
+				D3355214254F220B00F3732A /* ProductsCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D3355203254ED06A00F3732A /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D3355204254ED0C700F3732A /* Tools.swift */,
+				D3355211254EE9A300F3732A /* color.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		D335520A254ED35000F3732A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D335520B254ED36900F3732A /* Reports.swift */,
+				D3355217254F248700F3732A /* Products.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		D35FFD3E254D7C51006F8654 = {
 			isa = PBXGroup;
 			children = (
 				D35FFD49254D7C51006F8654 /* ElMohaseb Soft */,
 				D35FFD48254D7C51006F8654 /* Products */,
+				48D6C35AA892AFF919B54502 /* Pods */,
+				E0DCB687AF9D1094AF3EA75B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				D35FFD61254D7D15006F8654 /* AppDelegate */,
+				D3355203254ED06A00F3732A /* Library */,
+				D335520A254ED35000F3732A /* Data */,
 				D35FFD62254D7D2C006F8654 /* Controllers */,
 				D35FFD63254D7D44006F8654 /* Views */,
 				D35FFD64254D7DAD006F8654 /* Resources */,
@@ -75,7 +150,13 @@
 		D35FFD62254D7D2C006F8654 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D35FFD4E254D7C51006F8654 /* ViewController.swift */,
+				D35FFD4E254D7C51006F8654 /* HomeViewController.swift */,
+				D3355206254ED1A700F3732A /* SalesHomeViewController.swift */,
+				D3355208254ED1D200F3732A /* HomeSalesView.swift */,
+				D335520D254EE20900F3732A /* AddSaleViewController.swift */,
+				D335520F254EE23000F3732A /* AddSaleView.swift */,
+				D3355219254F383500F3732A /* AddProductsViewController.swift */,
+				D335521B254F385600F3732A /* AddProductsView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -85,6 +166,7 @@
 			children = (
 				D35FFD50254D7C51006F8654 /* Main.storyboard */,
 				D35FFD58254D7C66006F8654 /* LaunchScreen.storyboard */,
+				D33551FE254EB86200F3732A /* Cell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -99,6 +181,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		E0DCB687AF9D1094AF3EA75B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCD924432FDE74A1206CEAD7 /* Pods_ElMohaseb_Soft.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D35FFD5E254D7C66006F8654 /* Build configuration list for PBXNativeTarget "ElMohaseb Soft" */;
 			buildPhases = (
+				C7F4E5DD9712E2C56EA383FE /* [CP] Check Pods Manifest.lock */,
 				D35FFD43254D7C51006F8654 /* Sources */,
 				D35FFD44254D7C51006F8654 /* Frameworks */,
 				D35FFD45254D7C51006F8654 /* Resources */,
+				84062CE19097C49111AE542B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,22 +249,78 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3355216254F220B00F3732A /* ProductsCell.xib in Resources */,
 				D35FFD5A254D7C66006F8654 /* LaunchScreen.storyboard in Resources */,
 				D35FFD57254D7C66006F8654 /* Assets.xcassets in Resources */,
 				D35FFD52254D7C51006F8654 /* Main.storyboard in Resources */,
+				D3355202254EC1DE00F3732A /* ReseteCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		84062CE19097C49111AE542B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ElMohaseb Soft/Pods-ElMohaseb Soft-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ElMohaseb Soft/Pods-ElMohaseb Soft-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ElMohaseb Soft/Pods-ElMohaseb Soft-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7F4E5DD9712E2C56EA383FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ElMohaseb Soft-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D35FFD43254D7C51006F8654 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D35FFD4F254D7C51006F8654 /* ViewController.swift in Sources */,
+				D335521A254F383500F3732A /* AddProductsViewController.swift in Sources */,
+				D35FFD4F254D7C51006F8654 /* HomeViewController.swift in Sources */,
 				D35FFD4B254D7C51006F8654 /* AppDelegate.swift in Sources */,
+				D335520E254EE20900F3732A /* AddSaleViewController.swift in Sources */,
+				D3355207254ED1A700F3732A /* SalesHomeViewController.swift in Sources */,
 				D35FFD55254D7C51006F8654 /* ElMohaseb_Soft.xcdatamodeld in Sources */,
+				D3355215254F220B00F3732A /* ProductsCell.swift in Sources */,
+				D3355201254EC1DE00F3732A /* ReseteCell.swift in Sources */,
+				D335521C254F385600F3732A /* AddProductsView.swift in Sources */,
+				D3355218254F248700F3732A /* Products.swift in Sources */,
+				D3355205254ED0C700F3732A /* Tools.swift in Sources */,
+				D3355212254EE9A300F3732A /* color.swift in Sources */,
+				D3355209254ED1D200F3732A /* HomeSalesView.swift in Sources */,
+				D335520C254ED36900F3732A /* Reports.swift in Sources */,
+				D3355210254EE23000F3732A /* AddSaleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,16 +462,18 @@
 		};
 		D35FFD5F254D7C66006F8654 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F6644746E90C0585E46BF72 /* Pods-ElMohaseb Soft.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X4YZSY77G5;
 				INFOPLIST_FILE = "$(SRCROOT)/ElMohaseb Soft/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "MyCompany199.ElMohaseb-Soft";
+				PRODUCT_BUNDLE_IDENTIFIER = "MyCompany197.ElMohaseb-Soft";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -332,16 +482,18 @@
 		};
 		D35FFD60254D7C66006F8654 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E404D5B0FED93E2E7FF86B4C /* Pods-ElMohaseb Soft.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X4YZSY77G5;
 				INFOPLIST_FILE = "$(SRCROOT)/ElMohaseb Soft/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "MyCompany199.ElMohaseb-Soft";
+				PRODUCT_BUNDLE_IDENTIFIER = "MyCompany197.ElMohaseb-Soft";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func BTNSales (_ sender:Any) {
+        Tools.openForm(MainViewName: "Main", FormID: "SalesView", ob: self)
+    }
 
 }
 

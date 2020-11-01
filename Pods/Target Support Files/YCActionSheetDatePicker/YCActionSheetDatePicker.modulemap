@@ -1,0 +1,6 @@
+framework module YCActionSheetDatePicker {
+  umbrella header "YCActionSheetDatePicker-umbrella.h"
+
+  export *
+  module * { export * }
+}
