@@ -58,17 +58,17 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0jX-op-QUT">
-                                <rect key="frame" x="29" y="116" width="333" height="310"/>
+                                <rect key="frame" x="29" y="116" width="333" height="170"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="69" translatesAutoresizingMaskIntoConstraints="NO" id="Lg0-wz-XN0">
-                                        <rect key="frame" x="0.0" y="0.0" width="333" height="140"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="70"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEL-H6-hYE">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="140"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEL-H6-hYE">
+                                                <rect key="frame" x="0.0" y="0.0" width="111" height="70"/>
                                                 <state key="normal" backgroundImage="Button Salary"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQn-gS-BLc">
-                                                <rect key="frame" x="69" y="0.0" width="264" height="140"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQn-gS-BLc">
+                                                <rect key="frame" x="180" y="0.0" width="153" height="70"/>
                                                 <state key="normal" backgroundImage="Group 66"/>
                                                 <connections>
                                                     <action selector="BTNSales:" destination="BYZ-38-t0r" eventType="touchUpInside" id="axu-Ot-e9d"/>
@@ -77,14 +77,14 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="69" translatesAutoresizingMaskIntoConstraints="NO" id="MaL-LR-zBh">
-                                        <rect key="frame" x="0.0" y="170" width="333" height="140"/>
+                                        <rect key="frame" x="0.0" y="100" width="333" height="70"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIR-wu-sz9">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="140"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIR-wu-sz9">
+                                                <rect key="frame" x="0.0" y="0.0" width="111" height="70"/>
                                                 <state key="normal" backgroundImage="Button Accounts"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04m-cw-Jz2">
-                                                <rect key="frame" x="69" y="0.0" width="264" height="140"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04m-cw-Jz2">
+                                                <rect key="frame" x="180" y="0.0" width="153" height="70"/>
                                                 <state key="normal" backgroundImage="Group 67"/>
                                             </button>
                                         </subviews>
@@ -924,22 +924,22 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R71-VB-1EW">
                                 <rect key="frame" x="0.0" y="140" width="375" height="242"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="إسم الصنف" textAlignment="right" minimumFontSize="17" background="EmptyTextField" translatesAutoresizingMaskIntoConstraints="NO" id="616-cX-MWM">
-                                        <rect key="frame" x="17" y="0.0" width="307" height="34"/>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="إسم الصنف" textAlignment="right" minimumFontSize="17" background="EmptyTextField" translatesAutoresizingMaskIntoConstraints="NO" id="616-cX-MWM">
+                                        <rect key="frame" x="17" y="0.0" width="314" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="6CG-Wv-J2y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
                                             <outlet property="delegate" destination="Ynk-UA-Gwu" id="jQj-4u-yDa"/>
                                         </connections>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Label Info" translatesAutoresizingMaskIntoConstraints="NO" id="usJ-qh-tO0">
-                                        <rect key="frame" x="339" y="7" width="14" height="40"/>
+                                        <rect key="frame" x="346" y="7" width="7" height="20"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="xj8-qO-ZFv">
-                                        <rect key="frame" x="332.66666666666669" y="76" width="24.333333333333314" height="77"/>
+                                        <rect key="frame" x="332.66666666666669" y="56" width="24.333333333333314" height="77"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الكمية" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpR-3X-WGe">
                                                 <rect key="frame" x="0.0" y="0.0" width="24.333333333333332" height="12"/>
@@ -967,13 +967,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="OlR-hA-tS2">
                                                 <rect key="frame" x="0.0" y="0.0" width="307.66666666666669" height="29"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="If0-ww-AdB">
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="If0-ww-AdB">
                                                         <rect key="frame" x="0.0" y="0.0" width="307.66666666666669" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="d1L-b0-tWH"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="Ynk-UA-Gwu" id="QX0-QN-qaQ"/>
                                                         </connections>
@@ -990,13 +990,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="QtR-YH-uQP">
                                                 <rect key="frame" x="0.0" y="37" width="307.66666666666669" height="29"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kg8-h2-Q0Y">
+                                                    <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kg8-h2-Q0Y">
                                                         <rect key="frame" x="0.0" y="0.0" width="307.66666666666669" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="D6C-04-VWE"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="Ynk-UA-Gwu" id="bUX-hX-hh5"/>
                                                         </connections>
@@ -1013,13 +1013,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="G8X-jy-4p6">
                                                 <rect key="frame" x="0.0" y="74" width="307.66666666666669" height="29"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LH2-Ap-aTc">
+                                                    <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LH2-Ap-aTc">
                                                         <rect key="frame" x="0.0" y="0.0" width="307.66666666666669" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="CX6-wx-6f1"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="Ynk-UA-Gwu" id="Ljo-F8-dCM"/>
                                                         </connections>
@@ -1061,16 +1061,19 @@
                                                 <state key="normal" title="إضافة">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="BTNAdd:" destination="Ynk-UA-Gwu" eventType="touchUpInside" id="sZT-8q-N43"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="تفاصيل آحرى" textAlignment="center" minimumFontSize="17" background="EmptyTextField" translatesAutoresizingMaskIntoConstraints="NO" id="V73-pS-xOc">
+                                    <textField opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="تفاصيل آحرى" textAlignment="center" minimumFontSize="17" background="EmptyTextField" translatesAutoresizingMaskIntoConstraints="NO" id="V73-pS-xOc">
                                         <rect key="frame" x="30" y="170" width="315" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Ur5-hH-kvf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="Ynk-UA-Gwu" id="4oh-df-xcg"/>
                                         </connections>
