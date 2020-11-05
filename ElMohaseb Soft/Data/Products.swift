@@ -13,4 +13,5 @@ class Products {
     var Ammount: Int?
     var Price: Int?
     var FinalPrice: Int?
+    var Notes: String?
 }

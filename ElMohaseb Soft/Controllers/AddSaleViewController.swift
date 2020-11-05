@@ -15,6 +15,7 @@ class AddSaleViewController: UIViewController {
     var screenedge : UIScreenEdgePanGestureRecognizer!
     var menu:DropDown!
     var ProductsArr = Array<Products>()
+    var F = 0
     
     var addsalesview: AddSaleView! {
         guard isViewLoaded else { return nil }
@@ -26,20 +27,6 @@ class AddSaleViewController: UIViewController {
         
         Tools.MakeViewLine(view: addsalesview.View1)
         Tools.MakeViewLine(view: addsalesview.View2)
-        
-        let ob = Products()
-        ob.Name = "Water"
-        ob.Ammount = 5
-        ob.Price = 10
-        ob.FinalPrice = 50
-        ProductsArr.append(ob)
-        
-        let b = Products()
-        b.Name = "Soda"
-        b.Ammount = 5
-        b.Price = 20
-        b.FinalPrice = 100
-        ProductsArr.append(b)
         
         addsalesview.tableView.register(UINib(nibName: "ProductsCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
@@ -66,12 +53,25 @@ class AddSaleViewController: UIViewController {
     
     // MARK:- TODO:- Function Add Products.
     @IBAction func BTNAddProducts (_ sender:Any) {
+        F = 1
+        self.performSegue(withIdentifier: "AddProduct", sender: self)
         
-        AddProductsViewController.Flag = "0"
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let next = storyBoard.instantiateViewController(withIdentifier: "AddProductView")
-        self.present(next, animated: true, completion: nil)
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddProduct" {
+            if let vc = segue.destination as? AddProductsViewController {
+                if F == 1 {
+                    vc.Flag = "0"
+                    vc.delegate = self
+                }
+                else if F == 2 {
+                    vc.Flag = "1"
+                    vc.ProductcName = self.addsalesview.ProductNameTextField.text!
+                    vc.delegate = self
+                }
+            }
+        }
     }
     
     private func createActionSheetDatePicker() -> YCActionSheetDatePickerVC {
@@ -102,12 +102,8 @@ class AddSaleViewController: UIViewController {
                 self.addsalesview.ProductNameTextField.text = title
                 
                 // Open Products View.
-                AddProductsViewController.Flag = "1"
-                AddProductsViewController.ProductcName = self.addsalesview.ProductNameTextField.text!
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let next = storyBoard.instantiateViewController(withIdentifier: "AddProductView")
-                self.present(next, animated: true, completion: nil)
-                
+                self.F = 2
+                self.performSegue(withIdentifier: "AddProduct", sender: self)
             }
             break
         default:
@@ -263,5 +259,26 @@ extension AddSaleViewController: YCActionSheetDatePickerDelegate {
         addsalesview.DateButton.setTitle(dateFromString, for: .normal)
     }
     
+    
+}
+
+extension AddSaleViewController: AddedProdcuts {
+    
+    func NewProduct(Name:String,Ammount:String,Price:String) {
+        print("Picked Name: \(Name)")
+        print("Picked Ammount: \(Ammount)")
+        print("Picked Price: \(Price)")
+        
+        let ob = Products()
+        ob.Name = Name
+        ob.Ammount = Int(Ammount)
+        ob.Price = Int(Price)
+        ob.FinalPrice = Int( Int(Ammount)! * Int(Price)! )
+        self.ProductsArr.append(ob)
+        addsalesview.tableView.reloadData()
+        
+        addsalesview.TotalCountProductLabel.text = String( Int(addsalesview.TotalCountProductLabel.text!)! + 1 )
+        addsalesview.TotalFinalPrice.text = String( Int(addsalesview.TotalFinalPrice.text!)! + (Int(Ammount)! * Int(Price)!) )
+    }
     
 }

@@ -9,5 +9,11 @@ target 'ElMohaseb Soft' do
   pod 'DropDown'
   pod 'IQKeyboardManagerSwift'
   pod 'YCActionSheetDatePicker'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'RappleProgressHUD'
+  pod 'ProgressHUD'
 
 end

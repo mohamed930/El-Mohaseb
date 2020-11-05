@@ -22,12 +22,18 @@
 		D3355218254F248700F3732A /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3355217254F248700F3732A /* Products.swift */; };
 		D335521A254F383500F3732A /* AddProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3355219254F383500F3732A /* AddProductsViewController.swift */; };
 		D335521C254F385600F3732A /* AddProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D335521B254F385600F3732A /* AddProductsView.swift */; };
+		D34C7F342552CAB800123868 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D34C7F332552CAB800123868 /* GoogleService-Info.plist */; };
+		D34C7F372552DCBD00123868 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34C7F362552DCBD00123868 /* Firebase.swift */; };
 		D35FFD4B254D7C51006F8654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35FFD4A254D7C51006F8654 /* AppDelegate.swift */; };
 		D35FFD4F254D7C51006F8654 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35FFD4E254D7C51006F8654 /* HomeViewController.swift */; };
 		D35FFD52254D7C51006F8654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35FFD50254D7C51006F8654 /* Main.storyboard */; };
 		D35FFD55254D7C51006F8654 /* ElMohaseb_Soft.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D35FFD53254D7C51006F8654 /* ElMohaseb_Soft.xcdatamodeld */; };
 		D35FFD57254D7C66006F8654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D35FFD56254D7C66006F8654 /* Assets.xcassets */; };
 		D35FFD5A254D7C66006F8654 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35FFD58254D7C66006F8654 /* LaunchScreen.storyboard */; };
+		D37F04F32551A62600745E03 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F04F22551A62600745E03 /* LoginViewController.swift */; };
+		D37F04F52551A64100745E03 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F04F42551A64100745E03 /* LoginView.swift */; };
+		D37F04F72551A7C900745E03 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F04F62551A7C900745E03 /* SignupViewController.swift */; };
+		D37F04F92551A7DB00745E03 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F04F82551A7DB00745E03 /* SignupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +52,8 @@
 		D3355217254F248700F3732A /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		D3355219254F383500F3732A /* AddProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsViewController.swift; sourceTree = "<group>"; };
 		D335521B254F385600F3732A /* AddProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsView.swift; sourceTree = "<group>"; };
+		D34C7F332552CAB800123868 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D34C7F362552DCBD00123868 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		D35FFD47254D7C51006F8654 /* ElMohaseb Soft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ElMohaseb Soft.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35FFD4A254D7C51006F8654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D35FFD4E254D7C51006F8654 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +62,10 @@
 		D35FFD56254D7C66006F8654 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D35FFD59254D7C66006F8654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D35FFD5B254D7C66006F8654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D37F04F22551A62600745E03 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D37F04F42551A64100745E03 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D37F04F62551A7C900745E03 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		D37F04F82551A7DB00745E03 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		E404D5B0FED93E2E7FF86B4C /* Pods-ElMohaseb Soft.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElMohaseb Soft.release.xcconfig"; path = "Target Support Files/Pods-ElMohaseb Soft/Pods-ElMohaseb Soft.release.xcconfig"; sourceTree = "<group>"; };
 		FCD924432FDE74A1206CEAD7 /* Pods_ElMohaseb_Soft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElMohaseb_Soft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -108,6 +120,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		D34C7F352552DC3D00123868 /* Firebase Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D34C7F362552DCBD00123868 /* Firebase.swift */,
+			);
+			path = "Firebase Networking";
+			sourceTree = "<group>";
+		};
 		D35FFD3E254D7C51006F8654 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +151,7 @@
 			children = (
 				D35FFD61254D7D15006F8654 /* AppDelegate */,
 				D3355203254ED06A00F3732A /* Library */,
+				D34C7F352552DC3D00123868 /* Firebase Networking */,
 				D335520A254ED35000F3732A /* Data */,
 				D35FFD62254D7D2C006F8654 /* Controllers */,
 				D35FFD63254D7D44006F8654 /* Views */,
@@ -150,6 +171,10 @@
 		D35FFD62254D7D2C006F8654 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D37F04F22551A62600745E03 /* LoginViewController.swift */,
+				D37F04F42551A64100745E03 /* LoginView.swift */,
+				D37F04F62551A7C900745E03 /* SignupViewController.swift */,
+				D37F04F82551A7DB00745E03 /* SignupView.swift */,
 				D35FFD4E254D7C51006F8654 /* HomeViewController.swift */,
 				D3355206254ED1A700F3732A /* SalesHomeViewController.swift */,
 				D3355208254ED1D200F3732A /* HomeSalesView.swift */,
@@ -174,6 +199,7 @@
 		D35FFD64254D7DAD006F8654 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D34C7F332552CAB800123868 /* GoogleService-Info.plist */,
 				D35FFD56254D7C66006F8654 /* Assets.xcassets */,
 				D35FFD5B254D7C66006F8654 /* Info.plist */,
 				D35FFD53254D7C51006F8654 /* ElMohaseb_Soft.xcdatamodeld */,
@@ -254,6 +280,7 @@
 				D35FFD57254D7C66006F8654 /* Assets.xcassets in Resources */,
 				D35FFD52254D7C51006F8654 /* Main.storyboard in Resources */,
 				D3355202254EC1DE00F3732A /* ReseteCell.xib in Resources */,
+				D34C7F342552CAB800123868 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +333,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D37F04F92551A7DB00745E03 /* SignupView.swift in Sources */,
+				D37F04F72551A7C900745E03 /* SignupViewController.swift in Sources */,
 				D335521A254F383500F3732A /* AddProductsViewController.swift in Sources */,
 				D35FFD4F254D7C51006F8654 /* HomeViewController.swift in Sources */,
 				D35FFD4B254D7C51006F8654 /* AppDelegate.swift in Sources */,
@@ -314,10 +343,13 @@
 				D35FFD55254D7C51006F8654 /* ElMohaseb_Soft.xcdatamodeld in Sources */,
 				D3355215254F220B00F3732A /* ProductsCell.swift in Sources */,
 				D3355201254EC1DE00F3732A /* ReseteCell.swift in Sources */,
+				D34C7F372552DCBD00123868 /* Firebase.swift in Sources */,
 				D335521C254F385600F3732A /* AddProductsView.swift in Sources */,
 				D3355218254F248700F3732A /* Products.swift in Sources */,
+				D37F04F52551A64100745E03 /* LoginView.swift in Sources */,
 				D3355205254ED0C700F3732A /* Tools.swift in Sources */,
 				D3355212254EE9A300F3732A /* color.swift in Sources */,
+				D37F04F32551A62600745E03 /* LoginViewController.swift in Sources */,
 				D3355209254ED1D200F3732A /* HomeSalesView.swift in Sources */,
 				D335520C254ED36900F3732A /* Reports.swift in Sources */,
 				D3355210254EE23000F3732A /* AddSaleView.swift in Sources */,
