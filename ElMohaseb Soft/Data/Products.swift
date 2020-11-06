@@ -9,6 +9,7 @@
 import Foundation
 
 class Products {
+    var Id: String?
     var Name: String?
     var Ammount: Int?
     var Price: Int?

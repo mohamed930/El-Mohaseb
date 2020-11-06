@@ -9,13 +9,26 @@
 import UIKit
 import YCActionSheetDatePicker
 import DropDown
+import FirebaseAuth
+import FirebaseFirestore
+import RappleProgressHUD
+import ProgressHUD
+
+protocol ReloadData {
+    func Reload (X:Int)
+}
 
 class AddSaleViewController: UIViewController {
     
     var screenedge : UIScreenEdgePanGestureRecognizer!
     var menu:DropDown!
     var ProductsArr = Array<Products>()
+    var GetProductsArr = Array<Products>()
+    var Names = [""]
+    var customers = [""]
     var F = 0
+    var CurrentDate = ""
+    var delegate: ReloadData!
     
     var addsalesview: AddSaleView! {
         guard isViewLoaded else { return nil }
@@ -28,12 +41,21 @@ class AddSaleViewController: UIViewController {
         Tools.MakeViewLine(view: addsalesview.View1)
         Tools.MakeViewLine(view: addsalesview.View2)
         
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let result = formatter.string(from: date)
+        CurrentDate = result
+        addsalesview.DateButton.setTitle(CurrentDate, for: .normal)
+        
         addsalesview.tableView.register(UINib(nibName: "ProductsCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
         // MARK:- TODO:- This Line for adding Geusters.
         screenedge = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(Back(_:)))
         screenedge.edges = .left
         view.addGestureRecognizer(screenedge)
+        
+        FillData()
     }
     
     // MARK:- TODO:- Button BackAction.
@@ -68,6 +90,15 @@ class AddSaleViewController: UIViewController {
                 else if F == 2 {
                     vc.Flag = "1"
                     vc.ProductcName = self.addsalesview.ProductNameTextField.text!
+                    // Fill All
+                    for i in 0...(self.GetProductsArr.count - 1) {
+                        if GetProductsArr[i].Name == self.addsalesview.ProductNameTextField.text! {
+                            vc.PicekdID       = GetProductsArr[i].Id!
+                            vc.ProductPrice   = String(GetProductsArr[i].Price!)
+                            vc.ProductAmmount = String(GetProductsArr[i].Ammount!)
+                            vc.TotalPrice = String( GetProductsArr[i].Price! * GetProductsArr[i].Ammount! )
+                        }
+                    }
                     vc.delegate = self
                 }
             }
@@ -81,17 +112,50 @@ class AddSaleViewController: UIViewController {
         return vc
     }
     
+    // MARK:- TODO:- Make Function To Fill Products.
+    func FillData () {
+        
+        Names.removeAll()
+        customers.removeAll()
+        
+        RappleActivityIndicatorView.startAnimatingWithLabel("loading", attributes: RappleModernAttributes)
+        
+        Firebase.publicreadWithWhereCondtion(collectionName: "Products", key: "EmailID", value: (Auth.auth().currentUser?.email!)!) { (query) in
+            
+             for q in query.documents {
+                let ob = Products()
+                ob.Name = (q.get("ProductName") as! String)
+                ob.Ammount = Int ((q.get("Ammount") as! String))
+                ob.Price = Int ((q.get("Price") as! String))
+                ob.FinalPrice = Int ((q.get("TotalPrice") as! String))
+                ob.Notes = (q.get("Notes") as! String)
+                ob.Id = (q.documentID)
+                self.GetProductsArr.append(ob)
+                self.Names.append(q.get("ProductName") as! String)
+            }
+            
+        }
+        
+        Firebase.publicreadWithWhereCondtion(collectionName: "resete", key: "EmailID", value: (Auth.auth().currentUser?.email)!) { (snapshot) in
+            
+            for q in snapshot.documents {
+                self.customers.append((q.get("CustomerName") as! String))
+            }
+            RappleActivityIndicatorView.stopAnimation()
+        }
+    }
+    
     // MARK:- TODO:- DropDown Menu Action.
     func MakeDropDown(x:Int) {
         
         switch(x) {
         case 1:
-            SetMenuIntialize(ArrayData: ["Mohamed","Zyad","Ali"], PrintedTextField: addsalesview.CustomerNameTextField)
+            SetMenuIntialize(ArrayData: customers , PrintedTextField: addsalesview.CustomerNameTextField)
             break
         case 2:
             menu = {
                 let menu = DropDown()
-                menu.dataSource = ["Water","Pears","Sos"]
+                menu.dataSource = Names
                 return menu
             }()
             menu.anchorView   = addsalesview.ProductNameTextField
@@ -140,9 +204,8 @@ class AddSaleViewController: UIViewController {
         
         Alert.addAction(UIAlertAction(title: "نعم", style: .default, handler: { (alert) in
             
-            print("Saved!")
             // MARK:- TODO:- Make Method Call SaveFullTableData To Save Data To Database.
-            self.SaveFullTableData(x: x)
+            self.SaveFullTableData(x: 0)
             
         }))
         
@@ -152,9 +215,91 @@ class AddSaleViewController: UIViewController {
     // MARK:- TODO:- function SaveFullTableData.
     func SaveFullTableData(x:Int) {
         
-        print("Saved")
         if (x == 1) {
             self.dismiss(animated: true, completion: nil)
+        }
+        else {
+            
+            if (self.addsalesview.CustomerNameTextField.text == "" || self.addsalesview.NoteNumberTextField.text == "") {
+                Tools.createAlert(Title: "Error", Mess: "Please Fill All Fields", ob: self)
+            }
+            else {
+                
+                let id = UUID()
+                let ReseteData = ["CustomerName":self.addsalesview.CustomerNameTextField.text! as Any,
+                                  "ReseteNumber": self.addsalesview.NoteNumberTextField.text! as Any,
+                                  "Notes": self.addsalesview.NoteTextField.text! as Any,
+                                  "TotalNumberProducts": self.addsalesview.TotalCountProductLabel.text! as Any,
+                                  "TotalPrices": self.addsalesview.TotalFinalPrice.text!,
+                                  "Date": self.CurrentDate,
+                                  "EmailID": Auth.auth().currentUser?.email! as Any,
+                                  "ProductsID": id.uuidString
+                                ]
+                
+                RappleActivityIndicatorView.startAnimatingWithLabel("loading", attributes: RappleModernAttributes)
+                
+                Firestore.firestore().collection("resete").document(id.uuidString).setData(ReseteData) {
+                    error in
+                    
+                    if error != nil {
+                        RappleActivityIndicatorView.stopAnimation()
+                        ProgressHUD.showError("Error in your connection")
+                    }
+                    else {
+                        
+                        for i in 0...(self.ProductsArr.count - 1) {
+                            
+                            let ProductsData = ["ProductName": self.ProductsArr[i].Name!,
+                                                "AmmountProduct": self.ProductsArr[i].Ammount!,
+                                                "PriceProduct": self.ProductsArr[i].Price!,
+                                                "TotalPrice": self.ProductsArr[i].FinalPrice!,
+                                                "ReseteID": id.uuidString
+                                               ] as [String : Any]
+                            Firestore.firestore().collection("SoldProducts").document().setData(ProductsData) {
+                                error in
+                                if error != nil {
+                                   RappleActivityIndicatorView.stopAnimation()
+                                   ProgressHUD.showError("Error in your connection")
+                                }
+                                else {
+                                    
+                                    Firestore.firestore().collection("Products").document(self.ProductsArr[i].Id!).getDocument { (query, error) in
+                                        if error != nil {
+                                           RappleActivityIndicatorView.stopAnimation()
+                                           ProgressHUD.showError("Error in your connection")
+                                        }
+                                        else {
+                                            
+                                            let data = ["Ammount": String(Int(query?.get("Ammount") as! String)! - self.ProductsArr[i].Price!)]
+                                            
+                                            Firestore.firestore().collection("Products").document(self.ProductsArr[i].Id!).updateData(data) {
+                                                error in
+                                                if error != nil {
+                                                   RappleActivityIndicatorView.stopAnimation()
+                                                   ProgressHUD.showError("Error in your connection")
+                                                }
+                                                else {
+                                                    if i == (self.ProductsArr.count - 1) {
+                                                        RappleActivityIndicatorView.stopAnimation()
+                                                        ProgressHUD.showSuccess("Success Resete Added!")
+                                                        self.delegate.Reload(X: 1)
+                                                        self.dismiss(animated: true, completion: nil)
+                                                    }
+                                                }
+                                            }
+                                            
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
         }
         
     }
@@ -256,6 +401,7 @@ extension AddSaleViewController: YCActionSheetDatePickerDelegate {
         dateFromStringFormatter.dateFormat = "dd/MM/yyyy"
         let dateFromString = dateFromStringFormatter.string(from: date)
         
+        self.CurrentDate = dateFromString
         addsalesview.DateButton.setTitle(dateFromString, for: .normal)
     }
     
@@ -264,16 +410,18 @@ extension AddSaleViewController: YCActionSheetDatePickerDelegate {
 
 extension AddSaleViewController: AddedProdcuts {
     
-    func NewProduct(Name:String,Ammount:String,Price:String) {
+    func NewProduct(Name:String,Ammount:String,Price:String,Id:String) {
         print("Picked Name: \(Name)")
         print("Picked Ammount: \(Ammount)")
         print("Picked Price: \(Price)")
+        print("ProductID: \(Id)")
         
         let ob = Products()
         ob.Name = Name
         ob.Ammount = Int(Ammount)
         ob.Price = Int(Price)
         ob.FinalPrice = Int( Int(Ammount)! * Int(Price)! )
+        ob.Id = Id
         self.ProductsArr.append(ob)
         addsalesview.tableView.reloadData()
         

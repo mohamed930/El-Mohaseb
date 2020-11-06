@@ -12,18 +12,22 @@ import FirebaseAuth
 import RappleProgressHUD
 
 protocol AddedProdcuts {
-    func NewProduct (Name:String,Ammount:String,Price:String)
+    func NewProduct (Name:String,Ammount:String,Price:String,Id:String)
 }
 
 class AddProductsViewController: UIViewController {
     
     var ProductcName: String?
+    var ProductAmmount:String?
+    var ProductPrice:String?
+    var TotalPrice:String?
     var Flag: String?
     var menu:DropDown!
     var delegate: AddedProdcuts!
     var arr = Array<Products>()
     var Names = [""]
     var Choice = false
+    var PicekdID = ""
     
     var addproductsview: AddProductsView! {
         guard isViewLoaded else { return nil }
@@ -41,9 +45,14 @@ class AddProductsViewController: UIViewController {
         
         if (Flag == "1") {
             addproductsview.ProductNameTextField.text = ProductcName!
+            addproductsview.AmountTextField.becomeFirstResponder()
+            addproductsview.AmountTextField.placeholder = ProductAmmount!
+            addproductsview.PriceTextField.placeholder = ProductPrice!
+            addproductsview.TotalPriceTextField.placeholder = TotalPrice!
         }
-        
-        FillData()
+        else {
+            FillData()
+        }
         
     }
     
@@ -56,7 +65,7 @@ class AddProductsViewController: UIViewController {
         else {
             
             if Flag == "1" || Choice == true {
-                self.delegate.NewProduct(Name: addproductsview.ProductNameTextField.text! , Ammount: addproductsview.AmountTextField.text!, Price: addproductsview.PriceTextField.text!)
+                self.delegate.NewProduct(Name: addproductsview.ProductNameTextField.text! , Ammount: addproductsview.AmountTextField.text!, Price: addproductsview.PriceTextField.text!, Id: PicekdID)
                 self.dismiss(animated: true, completion: nil)
             }
             else {
@@ -99,6 +108,7 @@ class AddProductsViewController: UIViewController {
                     self.addproductsview.PriceTextField.placeholder = String(i.Price!)
                     self.addproductsview.TotalPriceTextField.placeholder = String(i.FinalPrice!)
                     self.addproductsview.DetailsTextField.placeholder = String(i.Notes!)
+                    self.PicekdID = i.Id!
                 }
             }
             
@@ -116,9 +126,11 @@ class AddProductsViewController: UIViewController {
                     "EmailID": Auth.auth().currentUser?.email! as Any
                    ] 
         
-        Firebase.addData(collectionName: "Products", data: data, SuccessMessage: "Added Sucess")
+        let identifier = UUID()
         
-        self.delegate.NewProduct(Name: addproductsview.ProductNameTextField.text! , Ammount: addproductsview.AmountTextField.text!, Price: addproductsview.PriceTextField.text!)
+        Firebase.addData(collectionName: "Products", documentID: identifier.uuidString, data: data, SuccessMessage: "Added Sucess")
+        
+        self.delegate.NewProduct(Name: addproductsview.ProductNameTextField.text! , Ammount: addproductsview.AmountTextField.text!, Price: addproductsview.PriceTextField.text!,Id: identifier.uuidString)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -138,6 +150,7 @@ class AddProductsViewController: UIViewController {
                 ob.Price = Int ((q.get("Price") as! String))
                 ob.FinalPrice = Int ((q.get("TotalPrice") as! String))
                 ob.Notes = (q.get("Notes") as! String)
+                ob.Id = (q.documentID)
                 self.arr.append(ob)
                 self.Names.append(q.get("ProductName") as! String)
             }

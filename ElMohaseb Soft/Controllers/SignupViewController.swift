@@ -39,8 +39,9 @@ class SignupViewController: UIViewController {
         else {
             
             let emails = ["Email": signupview.UserNameTextField.text!]
+            let identifier = UUID()
             
-            Firebase.createAccount(Email: signupview.UserNameTextField.text!, Password: signupview.PasswordTextField.text! , collectionName: "Users", data: emails, SuccessMessage: "Account is created Successfully!")
+            Firebase.createAccount(Email: signupview.UserNameTextField.text!, Password: signupview.PasswordTextField.text! , collectionName: "Users", documentID: identifier.uuidString, data: emails, SuccessMessage: "Account is created Successfully!")
         }
     }
     

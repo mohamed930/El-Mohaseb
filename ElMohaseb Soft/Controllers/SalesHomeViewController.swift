@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import RappleProgressHUD
 
 class SalesHomeViewController: UIViewController {
     
@@ -38,33 +40,41 @@ class SalesHomeViewController: UIViewController {
     
     // MARK:- TODO:- Button Add Action.
     @IBAction func BTNAdd (_ sender:Any) {
-        Tools.openForm(MainViewName: "Main", FormID: "AddSalesView", ob: self)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let next = storyBoard.instantiateViewController(withIdentifier: "AddSalesView") as! AddSaleViewController
+        next.delegate = self
+        next.modalPresentationStyle = .fullScreen
+        self.present(next, animated: true, completion: nil)
     }
     
     // MARK:- TODO:- Make A Method For Fetch a Data from Database.
     func FetchData () {
+        /*homesalesview.tableView.isHidden = true
+        homesalesview.MessView.isHidden = false*/
         
-        /*let ob = Reports()
-        ob.ID = 1
-        ob.Date = "2020-10-02"
-        ob.Name = "Mohamed"
-        ob.Price = "20"
-        ReportsArray.append(ob)
-        
-        ob.ID = 2
-        ob.Date = "2020-10-03"
-        ob.Name = "Mohamed"
-        ob.Price = "60"
-        ReportsArray.append(ob)
-        
-        ob.ID = 3
-        ob.Date = "2020-10-03"
-        ob.Name = "Mohamed"
-        ob.Price = "40"
-        ReportsArray.append(ob)*/
-        
-        homesalesview.tableView.isHidden = true
-        homesalesview.MessView.isHidden = false
+        Firebase.publicreadWithWhereCondtion(collectionName: "resete", key: "EmailID", value: (Auth.auth().currentUser?.email)!) { (snap) in
+            if snap.count == 0 {
+                RappleActivityIndicatorView.stopAnimation()
+                self.homesalesview.tableView.isHidden = true
+                self.homesalesview.MessView.isHidden = false
+            }
+            else {
+                
+                self.homesalesview.tableView.isHidden = false
+                self.homesalesview.MessView.isHidden = true
+
+                for q in snap.documents {
+                    let  ob = Reports()
+                    ob.ID = Int(q.get("ReseteNumber") as! String)
+                    ob.Name = (q.get("CustomerName") as! String)
+                    ob.Date = (q.get("Date") as! String)
+                    ob.Price = (q.get("TotalPrices") as! String)
+                    self.ReportsArray.append(ob)
+                    self.homesalesview.tableView.reloadData()
+                }
+                RappleActivityIndicatorView.stopAnimation()
+            }
+        }
     }
     
     // MARK:- TODO:- This Method For Add GuesterAction
@@ -76,7 +86,7 @@ class SalesHomeViewController: UIViewController {
 
 extension SalesHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 45.0
+        return 56.0
     }
 }
 
@@ -95,4 +105,17 @@ extension SalesHomeViewController: UITableViewDataSource {
         
         return cell
     }
+}
+
+extension SalesHomeViewController: ReloadData {
+    func Reload(X: Int) {
+        
+        if X == 1 {
+            self.ReportsArray.removeAll()
+            FetchData()
+        }
+        
+    }
+    
+    
 }

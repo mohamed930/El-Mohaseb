@@ -14,7 +14,7 @@ import ProgressHUD
 
 class Firebase {
     // MARK:- TODO:- This Method For Signup completly to Firebase.
-    public static func createAccount(Email:String,Password:String,collectionName:String,data:[String:String],SuccessMessage:String) {
+    public static func createAccount(Email:String,Password:String,collectionName:String,documentID:String,data:[String:String],SuccessMessage:String) {
         
         Auth.auth().createUser(withEmail: Email, password: Password) { (auth, error) in
             if error != nil {
@@ -22,16 +22,16 @@ class Firebase {
                 ProgressHUD.showError("Your Data not created Successed!")
             }
             else {
-                self.addData(collectionName: collectionName, data: data,SuccessMessage: SuccessMessage)
+                self.addData(collectionName: collectionName, documentID: documentID, data: data,SuccessMessage: SuccessMessage)
             }
         }
     }
     
     // MARK:- TODO:- This Method For Adding Data to Firebase.
-    public static func addData (collectionName:String,data:[String:Any],SuccessMessage:String) {
+    public static func addData (collectionName:String,documentID:String,data:[String:Any],SuccessMessage:String) {
         
         RappleActivityIndicatorView.startAnimatingWithLabel("loading", attributes: RappleModernAttributes)
-        Firestore.firestore().collection(collectionName).document().setData(data){
+        Firestore.firestore().collection(collectionName).document(documentID).setData(data){
             error in
             if error != nil {
                 RappleActivityIndicatorView.stopAnimation()
@@ -67,6 +67,7 @@ class Firebase {
     public static func publicreadWithWhereCondtion (collectionName:String , key:String , value:String , complention: @escaping (QuerySnapshot) -> ()) {
         
         RappleActivityIndicatorView.startAnimatingWithLabel("loading", attributes: RappleModernAttributes)
+        
         Firestore.firestore().collection(collectionName).whereField(key, isEqualTo: value).getDocuments { (quary, error) in
             if error != nil {
                 RappleActivityIndicatorView.stopAnimation()
@@ -76,5 +77,22 @@ class Firebase {
                 complention(quary!)
             }
         }
+    }
+    
+    // MARK:- TODO:- This Method For Update Data from Firebase.
+    public static func updateDocumnt (collectionName:String,documntId:String,data:[String:Any],complination: @escaping (String) -> ()) {
+        
+        Firestore.firestore().collection(collectionName).document(documntId).updateData(data){
+            error in
+            if error != nil {
+                RappleActivityIndicatorView.stopAnimation()
+                ProgressHUD.showError("Your Data isn't updated Successfully!")
+            }
+            else {
+                RappleActivityIndicatorView.stopAnimation()
+                complination("Success")
+            }
+        }
+        
     }
 }
