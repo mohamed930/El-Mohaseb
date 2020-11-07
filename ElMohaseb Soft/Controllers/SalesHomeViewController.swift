@@ -43,6 +43,7 @@ class SalesHomeViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let next = storyBoard.instantiateViewController(withIdentifier: "AddSalesView") as! AddSaleViewController
         next.delegate = self
+        AddSaleViewController.Flag = false
         next.modalPresentationStyle = .fullScreen
         self.present(next, animated: true, completion: nil)
     }
@@ -69,6 +70,7 @@ class SalesHomeViewController: UIViewController {
                     ob.Name = (q.get("CustomerName") as! String)
                     ob.Date = (q.get("Date") as! String)
                     ob.Price = (q.get("TotalPrices") as! String)
+                    ob.ReportID = (q.get("ProductsID") as! String)
                     self.ReportsArray.append(ob)
                     self.homesalesview.tableView.reloadData()
                 }
@@ -87,6 +89,12 @@ class SalesHomeViewController: UIViewController {
 extension SalesHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 56.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        AddSaleViewController.Flag = true
+        AddSaleViewController.ProductID = String(self.ReportsArray[indexPath.row].ReportID!)
+        Tools.openForm(MainViewName: "Main", FormID: "AddSalesView", ob: self)
     }
 }
 

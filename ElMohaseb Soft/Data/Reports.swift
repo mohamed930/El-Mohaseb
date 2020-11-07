@@ -13,4 +13,5 @@ class Reports {
     var Date:String?
     var Name:String?
     var Price:String?
+    var ReportID:String?
 }

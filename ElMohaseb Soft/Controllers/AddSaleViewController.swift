@@ -29,6 +29,8 @@ class AddSaleViewController: UIViewController {
     var F = 0
     var CurrentDate = ""
     var delegate: ReloadData!
+    static var Flag = false
+    static var ProductID: String?
     
     var addsalesview: AddSaleView! {
         guard isViewLoaded else { return nil }
@@ -41,13 +43,6 @@ class AddSaleViewController: UIViewController {
         Tools.MakeViewLine(view: addsalesview.View1)
         Tools.MakeViewLine(view: addsalesview.View2)
         
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        let result = formatter.string(from: date)
-        CurrentDate = result
-        addsalesview.DateButton.setTitle(CurrentDate, for: .normal)
-        
         addsalesview.tableView.register(UINib(nibName: "ProductsCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
         // MARK:- TODO:- This Line for adding Geusters.
@@ -55,7 +50,19 @@ class AddSaleViewController: UIViewController {
         screenedge.edges = .left
         view.addGestureRecognizer(screenedge)
         
-        FillData()
+        if AddSaleViewController.Flag == false {
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            let result = formatter.string(from: date)
+            CurrentDate = result
+            addsalesview.DateButton.setTitle(CurrentDate, for: .normal)
+            
+            FillData()
+        }
+        else {
+            GetReseteData()
+        }
     }
     
     // MARK:- TODO:- Button BackAction.
@@ -302,6 +309,53 @@ class AddSaleViewController: UIViewController {
             }
         }
         
+    }
+    
+    // MARK:- TODO:- function GetReseteData to Edit it.
+    func GetReseteData() {
+        Names.removeAll()
+        customers.removeAll()
+        
+        RappleActivityIndicatorView.startAnimatingWithLabel("loading", attributes: RappleModernAttributes)
+        
+        Firebase.publicreadWithWhereCondtion(collectionName: "resete", key: "EmailID", value: (Auth.auth().currentUser?.email)!) { (snapshot) in
+            
+            for q in snapshot.documents {
+                self.customers.append((q.get("CustomerName") as! String))
+            }
+            //RappleActivityIndicatorView.stopAnimation()
+        }
+        
+        //print("Success ID is: \(AddSaleViewController.ProductID!)")
+        
+        Firebase.publicreadWithWhereCondtion(collectionName: "resete", key: "ProductsID", value: AddSaleViewController.ProductID!) { (query) in
+            
+            for q in query.documents {
+                self.addsalesview.CustomerNameTextField.text = (q.get("CustomerName") as! String)
+                self.addsalesview.NoteNumberTextField.text = (q.get("ReseteNumber") as! String)
+                self.addsalesview.NoteTextField.text = (q.get("Notes") as! String)
+                self.addsalesview.DateButton.setTitle((q.get("Date") as! String), for: .normal)
+                self.addsalesview.TotalCountProductLabel.text = (q.get("TotalNumberProducts") as! String)
+                self.addsalesview.TotalFinalPrice.text = (q.get("TotalPrices") as! String)
+            }
+            
+            Firebase.publicreadWithWhereCondtion(collectionName: "SoldProducts", key: "ReseteID", value: AddSaleViewController.ProductID!) { (snap) in
+                
+                for doc in snap.documents {
+                    let ob = Products()
+                    ob.Name = (doc.get("ProductName") as! String)
+                    ob.Price = (doc.get("PriceProduct") as! Int)
+                    ob.Ammount = (doc.get("AmmountProduct") as! Int)
+                    ob.FinalPrice = (doc.get("TotalPrice") as! Int)
+                    ob.Id = doc.documentID
+                    self.ProductsArr.append(ob)
+                    self.addsalesview.tableView.reloadData()
+                }
+                RappleActivityIndicatorView.stopAnimation()
+                
+            }
+            
+        }
     }
     
     // MARK:- TODO:- This Method For Add GuesterAction
