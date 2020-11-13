@@ -19,6 +19,7 @@ class AddProductsViewController: UIViewController {
     
     var ProductcName: String?
     var ProductAmmount:String?
+    var NewProductAmmout: String?
     var ProductPrice:String?
     var TotalPrice:String?
     var Flag: String?
@@ -50,6 +51,14 @@ class AddProductsViewController: UIViewController {
             addproductsview.PriceTextField.placeholder = ProductPrice!
             addproductsview.TotalPriceTextField.placeholder = TotalPrice!
         }
+        else if (Flag == "2") {
+            addproductsview.ProductNameTextField.text = ProductcName!
+            addproductsview.AmountTextField.becomeFirstResponder()
+            addproductsview.AmountTextField.placeholder = String(Int(NewProductAmmout!)! + Int(ProductAmmount!)!)
+            addproductsview.PriceTextField.placeholder = ProductPrice!
+            addproductsview.TotalPriceTextField.placeholder = String( Int(ProductPrice!)! * Int(addproductsview.AmountTextField.placeholder!)! )
+            
+        }
         else {
             FillData()
         }
@@ -59,19 +68,35 @@ class AddProductsViewController: UIViewController {
     // MARK:- TODO:- This Action Method For Add Button.
     @IBAction func BTNAdd (_ sender:Any) {
         
-        if addproductsview.ProductNameTextField.text == "" || addproductsview.PriceTextField.text == "" || addproductsview.AmountTextField.text == "" || addproductsview.TotalPriceTextField.text == "" {
-            Tools.createAlert(Title: "خطا", Mess: "ارجوك املى جميع الخانات", ob: self)
-        }
-        else {
-            
-            if Flag == "1" || Choice == true {
-                self.delegate.NewProduct(Name: addproductsview.ProductNameTextField.text! , Ammount: addproductsview.AmountTextField.text!, Price: addproductsview.PriceTextField.text!, Id: PicekdID)
-                self.dismiss(animated: true, completion: nil)
+        if Flag == "2" {
+            print("Updated Successfully!")
+            if addproductsview.ProductNameTextField.text == "" || addproductsview.PriceTextField.text == "" || addproductsview.AmountTextField.text == "" || addproductsview.TotalPriceTextField.text == "" {
+                        Tools.createAlert(Title: "خطا", Mess: "ارجوك املى جميع الخانات", ob: self)
             }
             else {
-                // Send To DataBase First and put it in resete.
-                AddNewProduct()
+                print("Name: \(addproductsview.ProductNameTextField.text!)")
+                print("Ammount: \(addproductsview.AmountTextField.text!)")
+                print("Price: \(addproductsview.PriceTextField.text!)")
+                print("Received: \(PicekdID)")
+                self.delegate.NewProduct(Name: addproductsview.ProductNameTextField.text! , Ammount: addproductsview.AmountTextField.text! , Price: addproductsview.PriceTextField.text! , Id: PicekdID)
+                self.dismiss(animated: true, completion: nil)
             }
+        }
+        else {
+            if addproductsview.ProductNameTextField.text == "" || addproductsview.PriceTextField.text == "" || addproductsview.AmountTextField.text == "" || addproductsview.TotalPriceTextField.text == "" {
+                       Tools.createAlert(Title: "خطا", Mess: "ارجوك املى جميع الخانات", ob: self)
+           }
+           else {
+               
+               if Flag == "1" || Choice == true {
+                   self.delegate.NewProduct(Name: addproductsview.ProductNameTextField.text! , Ammount: addproductsview.AmountTextField.text!, Price: addproductsview.PriceTextField.text!, Id: PicekdID)
+                   self.dismiss(animated: true, completion: nil)
+               }
+               else {
+                   // Send To DataBase First and put it in resete.
+                   AddNewProduct()
+               }
+           }
         }
     }
     

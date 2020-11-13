@@ -893,12 +893,12 @@
                                     <constraint firstAttribute="bottom" secondItem="sRK-gb-LOO" secondAttribute="bottom" constant="4" id="y1D-aj-koj"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wnw-c3-nzE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wnw-c3-nzE">
                                 <rect key="frame" x="0.0" y="323" width="375" height="429"/>
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="H2J-m1-ast" id="bYD-J6-0hV"/>
-                                    <outlet property="delegate" destination="H2J-m1-ast" id="X1X-yX-XxS"/>
+                                    <outlet property="delegate" destination="H2J-m1-ast" id="k7Z-TK-Xd8"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEB-df-5qc">
