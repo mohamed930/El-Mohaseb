@@ -24,6 +24,7 @@
 		D335521C254F385600F3732A /* AddProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D335521B254F385600F3732A /* AddProductsView.swift */; };
 		D34C7F342552CAB800123868 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D34C7F332552CAB800123868 /* GoogleService-Info.plist */; };
 		D34C7F372552DCBD00123868 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34C7F362552DCBD00123868 /* Firebase.swift */; };
+		D35DF956255FC1B80070C1DC /* AmmountProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35DF955255FC1B70070C1DC /* AmmountProducts.swift */; };
 		D35FFD4B254D7C51006F8654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35FFD4A254D7C51006F8654 /* AppDelegate.swift */; };
 		D35FFD4F254D7C51006F8654 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35FFD4E254D7C51006F8654 /* HomeViewController.swift */; };
 		D35FFD52254D7C51006F8654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35FFD50254D7C51006F8654 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		D335521B254F385600F3732A /* AddProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsView.swift; sourceTree = "<group>"; };
 		D34C7F332552CAB800123868 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D34C7F362552DCBD00123868 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		D35DF955255FC1B70070C1DC /* AmmountProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmmountProducts.swift; sourceTree = "<group>"; };
 		D35FFD47254D7C51006F8654 /* ElMohaseb Soft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ElMohaseb Soft.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35FFD4A254D7C51006F8654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D35FFD4E254D7C51006F8654 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				D335520B254ED36900F3732A /* Reports.swift */,
 				D3355217254F248700F3732A /* Products.swift */,
+				D35DF955255FC1B70070C1DC /* AmmountProducts.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D35DF956255FC1B80070C1DC /* AmmountProducts.swift in Sources */,
 				D37F04F92551A7DB00745E03 /* SignupView.swift in Sources */,
 				D37F04F72551A7C900745E03 /* SignupViewController.swift in Sources */,
 				D335521A254F383500F3732A /* AddProductsViewController.swift in Sources */,

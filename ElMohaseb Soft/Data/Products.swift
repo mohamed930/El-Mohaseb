@@ -15,4 +15,5 @@ class Products {
     var Price: Int?
     var FinalPrice: Int?
     var Notes: String?
+    var status = ""
 }

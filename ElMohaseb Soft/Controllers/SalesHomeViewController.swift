@@ -43,7 +43,7 @@ class SalesHomeViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let next = storyBoard.instantiateViewController(withIdentifier: "AddSalesView") as! AddSaleViewController
         next.delegate = self
-        AddSaleViewController.Flag = false
+        next.Flag = false
         next.modalPresentationStyle = .fullScreen
         self.present(next, animated: true, completion: nil)
     }
@@ -63,6 +63,7 @@ class SalesHomeViewController: UIViewController {
                 
                 self.homesalesview.tableView.isHidden = false
                 self.homesalesview.MessView.isHidden = true
+                self.homesalesview.CountLabel.text = String(snap.count)
 
                 for q in snap.documents {
                     let  ob = Reports()
@@ -75,6 +76,8 @@ class SalesHomeViewController: UIViewController {
                     self.homesalesview.tableView.reloadData()
                 }
                 RappleActivityIndicatorView.stopAnimation()
+                
+                
             }
         }
     }
@@ -92,9 +95,13 @@ extension SalesHomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        AddSaleViewController.Flag = true
-        AddSaleViewController.ProductID = String(self.ReportsArray[indexPath.row].ReportID!)
-        Tools.openForm(MainViewName: "Main", FormID: "AddSalesView", ob: self)
+        let story = UIStoryboard(name: "Main", bundle: nil)
+        let next = story.instantiateViewController(withIdentifier: "AddSalesView") as! AddSaleViewController
+        next.modalPresentationStyle = .fullScreen
+        next.ProductID = String(self.ReportsArray[indexPath.row].ReportID!)
+        next.Flag = true
+        next.delegate = self
+        self.present(next, animated: true, completion: nil)
     }
 }
 

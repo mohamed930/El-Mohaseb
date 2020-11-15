@@ -13,6 +13,7 @@ import RappleProgressHUD
 
 protocol AddedProdcuts {
     func NewProduct (Name:String,Ammount:String,Price:String,Id:String)
+    func AmmountBeforeEdit (Id:String ,Ammount:String)
 }
 
 class AddProductsViewController: UIViewController {
@@ -79,6 +80,7 @@ class AddProductsViewController: UIViewController {
                 print("Price: \(addproductsview.PriceTextField.text!)")
                 print("Received: \(PicekdID)")
                 self.delegate.NewProduct(Name: addproductsview.ProductNameTextField.text! , Ammount: addproductsview.AmountTextField.text! , Price: addproductsview.PriceTextField.text! , Id: PicekdID)
+                self.delegate.AmmountBeforeEdit(Id: PicekdID , Ammount: NewProductAmmout!)
                 self.dismiss(animated: true, completion: nil)
             }
         }
@@ -143,8 +145,10 @@ class AddProductsViewController: UIViewController {
     // MARK:- TODO:- This Function For SendNew Prduct to DataBase.
     func AddNewProduct () {
         
+        let FinalAmmount = String(2 * Int(addproductsview.AmountTextField.text!)!)
+        
         let data = ["ProductName":addproductsview.ProductNameTextField.text! as Any,
-                    "Ammount": addproductsview.AmountTextField.text! as Any,
+                    "Ammount": FinalAmmount as Any,
                     "Price": addproductsview.PriceTextField.text! as Any,
                     "TotalPrice": addproductsview.TotalPriceTextField.text! as Any,
                     "Notes": addproductsview.DetailsTextField.text! ,

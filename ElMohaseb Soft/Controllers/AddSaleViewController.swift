@@ -24,13 +24,14 @@ class AddSaleViewController: UIViewController {
     var menu:DropDown!
     var ProductsArr = Array<Products>()
     var GetProductsArr = Array<Products>()
+    var AmmountsArr = Array<AmmountProducts>()
     var Names = [""]
     var customers = [""]
     var F = 0
     var CurrentDate = ""
     var delegate: ReloadData!
-    static var Flag = false
-    static var ProductID: String?
+    var Flag = false
+    var ProductID: String?
     var ProductName:String?
     var ProductAmmount:String?
     var ProductPrice:String?
@@ -38,6 +39,10 @@ class AddSaleViewController: UIViewController {
     var ProductId = ""
     var Picked = false
     var ReseteId:String?
+    var FinalAmmount = ""
+    var AmmountBeforeChanged = ""
+    var ShowedMenyFlag = false
+    var ReseteTotalPrice: String?
     
     var addsalesview: AddSaleView! {
         guard isViewLoaded else { return nil }
@@ -57,7 +62,7 @@ class AddSaleViewController: UIViewController {
         screenedge.edges = .left
         view.addGestureRecognizer(screenedge)
         
-        if AddSaleViewController.Flag == false {
+        if Flag == false {
             let date = Date()
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy"
@@ -243,7 +248,7 @@ class AddSaleViewController: UIViewController {
         }
         else {
             
-            if AddSaleViewController.Flag == true {
+            if Flag == true {
                 // Update Data
                 print ("Updated!")
                 UpdateResete()
@@ -299,7 +304,7 @@ class AddSaleViewController: UIViewController {
                                             }
                                             else {
                                                 
-                                                let data = ["Ammount": String(Int(query?.get("Ammount") as! String)! - self.ProductsArr[i].Price!)]
+                                                let data = ["Ammount": String(Int(query?.get("Ammount") as! String)! - self.ProductsArr[i].Ammount!)]
                                                 
                                                 Firestore.firestore().collection("Products").document(self.ProductsArr[i].Id!).updateData(data) {
                                                     error in
@@ -367,7 +372,7 @@ class AddSaleViewController: UIViewController {
         
         //print("Success ID is: \(AddSaleViewController.ProductID!)")
         
-        Firebase.publicreadWithWhereCondtion(collectionName: "resete", key: "ProductsID", value: AddSaleViewController.ProductID!) { (query) in
+        Firebase.publicreadWithWhereCondtion(collectionName: "resete", key: "ProductsID", value: ProductID!) { (query) in
             
             for q in query.documents {
                 self.addsalesview.CustomerNameTextField.text = (q.get("CustomerName") as! String)
@@ -377,10 +382,14 @@ class AddSaleViewController: UIViewController {
                 self.CurrentDate = (q.get("Date") as! String)
                 self.addsalesview.TotalCountProductLabel.text = (q.get("TotalNumberProducts") as! String)
                 self.addsalesview.TotalFinalPrice.text = (q.get("TotalPrices") as! String)
+                
+                // Add Price and count to var.
+                self.ReseteTotalPrice = ((q.get("TotalPrices") as! String))
+                
                 self.ReseteId = q.documentID
             }
             
-            Firebase.publicreadWithWhereCondtion(collectionName: "SoldProducts", key: "ReseteID", value: AddSaleViewController.ProductID!) { (snap) in
+            Firebase.publicreadWithWhereCondtion(collectionName: "SoldProducts", key: "ReseteID", value: self.ProductID!) { (snap) in
                 
                 for doc in snap.documents {
                     let ob = Products()
@@ -389,6 +398,7 @@ class AddSaleViewController: UIViewController {
                     ob.Ammount = (doc.get("AmmountProduct") as! Int)
                     ob.FinalPrice = (doc.get("TotalPrice") as! Int)
                     ob.Id = doc.documentID
+                    ob.status = "Old"
                     self.ProductsArr.append(ob)
                     self.addsalesview.tableView.reloadData()
                 }
@@ -401,6 +411,11 @@ class AddSaleViewController: UIViewController {
     
     // MARK:- TODO:- function Update Resete Data.
     func UpdateResete() {
+        
+//        for i in 0...(self.ProductsArr.count - 1) {
+//
+//            print("ProductName: \(self.ProductsArr[i].Name!), ProductFlag: \(self.ProductsArr[i].status)")
+//        }
         
         RappleActivityIndicatorView.startAnimatingWithLabel("Loading", attributes: RappleModernAttributes)
         
@@ -416,54 +431,160 @@ class AddSaleViewController: UIViewController {
         Firebase.updateDocumnt(collectionName: "resete", documntId: self.ReseteId! , data: ReseteData) { (result) in
             if result == "Success" {
                 
-                // Update Sold Products.
-                
-                for i in 0...(self.ProductsArr.count - 1) {
-                
-                let ProductsData = ["ProductName": self.ProductsArr[i].Name!,
-                                    "AmmountProduct": self.ProductsArr[i].Ammount!,
-                                    "PriceProduct": self.ProductsArr[i].Price!,
-                                    "TotalPrice": self.ProductsArr[i].FinalPrice!,
-                                    "ReseteID": self.ReseteId!
-                                   ] as [String : Any]
-                    Firestore.firestore().collection("SoldProducts").document(self.ProductsArr[i].Id!).setData(ProductsData) {
-                        error in
-                        if error != nil {
-                           RappleActivityIndicatorView.stopAnimation()
-                           ProgressHUD.showError("Error in your connection")
-                        }
-                        else {
+                if self.ReseteTotalPrice == self.addsalesview.TotalFinalPrice.text! {
+                    
+                    // Finish The Update here.
+                    RappleActivityIndicatorView.stopAnimation()
+                    ProgressHUD.showSuccess("Success Resete Added!")
+                    self.delegate.Reload(X: 1)
+                    self.dismiss(animated: true, completion: nil)
+                    
+                }
+                else {
+                    // Update Sold Products.
+                    for i in 0...(self.ProductsArr.count - 1) {
+                        
+                        //print("ProductName: \(self.ProductsArr[i].Name!), ProductFlag: \(self.ProductsArr[i].status!)")
+                    
+                    let ProductsData = ["ProductName": self.ProductsArr[i].Name!,
+                                        "AmmountProduct": self.ProductsArr[i].Ammount!,
+                                        "PriceProduct": self.ProductsArr[i].Price!,
+                                        "TotalPrice": self.ProductsArr[i].FinalPrice!,
+                                        "ReseteID": self.ReseteId!
+                                       ] as [String : Any]
+                        
+                        if self.ProductsArr[i].status == "Old" {
                             
-                            Firestore.firestore().collection("Products").document(self.ProductsArr[i].Id!).getDocument { (query, error) in
+                            // Update Data.
+                            // ----------------------------
+                            Firestore.firestore().collection("SoldProducts").document(self.ProductsArr[i].Id!).setData(ProductsData) {
+                                error in
                                 if error != nil {
                                    RappleActivityIndicatorView.stopAnimation()
                                    ProgressHUD.showError("Error in your connection")
                                 }
                                 else {
                                     
-                                    let data = ["Ammount": String(Int(query?.get("Ammount") as! String)! - self.ProductsArr[i].Price!)]
-                                    
-                                    Firestore.firestore().collection("Products").document(self.ProductsArr[i].Id!).updateData(data) {
-                                        error in
+                                    Firestore.firestore().collection("Products").whereField("EmailID", isEqualTo: (Auth.auth().currentUser?.email)!).getDocuments { (q, error) in
                                         if error != nil {
-                                           RappleActivityIndicatorView.stopAnimation()
-                                           ProgressHUD.showError("Error in your connection")
+                                            RappleActivityIndicatorView.stopAnimation()
                                         }
                                         else {
-                                            if i == (self.ProductsArr.count - 1) {
-                                                RappleActivityIndicatorView.stopAnimation()
-                                                ProgressHUD.showSuccess("Success Resete Added!")
-                                                self.delegate.Reload(X: 1)
-                                                self.dismiss(animated: true, completion: nil)
+                                            for f in q!.documents {
+                                                
+                                                if self.ProductsArr[i].Name! == f.get("ProductName") as! String {
+                                                    
+                                                    let ProductID = f.documentID
+                                                    
+                                                    let OldAmmount = (f.get("Ammount") as! String)
+                                                    print("F: \(Int(OldAmmount)!)")
+                                                    
+                                                    if self.ProductsArr[i].status == "Old" {
+                                                        
+                                                        for j in stride(from: 0, to: (self.AmmountsArr.count), by: 1) {
+                                                                                                               
+                                                           for n in 0...(self.ProductsArr.count - 1) {
+                                                               if self.AmmountsArr[j].Id! == self.ProductsArr[n].Id! {
+                                                                   self.AmmountBeforeChanged = self.AmmountsArr[j].OldAmount!
+                                                                   break
+                                                               }
+                                                           }
+                                                           
+                                                           if self.AmmountsArr[j].Id! == self.ProductsArr[i].Id! {
+                                                               
+                                                               self.FinalAmmount = String( Int(Int(OldAmmount)! + Int(self.AmmountBeforeChanged)!) - (self.ProductsArr[i].Ammount!) )
+                                                               
+                                                               let data = ["Ammount": self.FinalAmmount]
+                                                               
+                                                               Firestore.firestore().collection("Products").document(ProductID).updateData(data) {
+                                                                   error in
+                                                                   if error != nil {
+                                                                      RappleActivityIndicatorView.stopAnimation()
+                                                                      ProgressHUD.showError("Error in your connection")
+                                                                   }
+                                                                   else {
+                                                                       if i == (self.ProductsArr.count - 1) {
+                                                                           RappleActivityIndicatorView.stopAnimation()
+                                                                           ProgressHUD.showSuccess("Success Resete Added!")
+                                                                           self.delegate.Reload(X: 1)
+                                                                           self.dismiss(animated: true, completion: nil)
+                                                                       }
+                                                                   }
+                                                               }
+                                                               
+                                                           }
+                                                        
+                                                       }
+                                                    }
+                                                    
+                                                   
+                                                    
+                                                    
+                                                }
+                                                else {
+                                                    continue
+                                                }
                                             }
                                         }
                                     }
                                     
                                 }
+                            
                             }
+                            // ----------------------------
                             
                         }
-                    
+                        
+                        else if self.ProductsArr[i].status == "New" {
+                            
+                            // Add Data on Resete.
+                            // -------------------------------
+                            Firestore.firestore().collection("SoldProducts").document().setData(ProductsData) {
+                                error in
+                                if error != nil {
+                                   RappleActivityIndicatorView.stopAnimation()
+                                   ProgressHUD.showError("Error in your connection")
+                                }
+                                else {
+                                    
+                                    // Update Products.
+                                    // -----------------------
+                                    Firestore.firestore().collection("Products").document(self.ProductsArr[i].Id!).getDocument { (query, error) in
+                                        if error != nil {
+                                            RappleActivityIndicatorView.stopAnimation()
+                                            ProgressHUD.showError("Error in your connection")
+                                        }
+                                        else {
+                                            
+                                            let data = ["Ammount": String(Int(query?.get("Ammount") as! String)! - self.ProductsArr[i].Ammount!)]
+                                            
+                                            Firestore.firestore().collection("Products").document(self.ProductsArr[i].Id!).updateData(data) {
+                                                error in
+                                                if error != nil {
+                                                    RappleActivityIndicatorView.stopAnimation()
+                                                    ProgressHUD.showError("Error in your connection")
+                                                }
+                                                else {
+                                                    if i == (self.ProductsArr.count - 1) {
+                                                        RappleActivityIndicatorView.stopAnimation()
+                                                        ProgressHUD.showSuccess("Success Resete Added!")
+                                                        self.delegate.Reload(X: 1)
+                                                        self.dismiss(animated: true, completion: nil)
+                                                    }
+                                                }
+                                            }
+                                            
+                                        }
+                                    }
+                                    // -----------------------
+                                
+                                }
+                            
+                            }
+                            // -------------------------------
+                            
+                        }
+                        
                     }
                 }
             }
@@ -506,7 +627,7 @@ extension AddSaleViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if AddSaleViewController.Flag == true {
+        if Flag == true {
             
             //self.ProductId = self.ProductsArr[indexPath.row].Id!
             
@@ -545,6 +666,7 @@ extension AddSaleViewController: UITextFieldDelegate{
             addsalesview.Line3.backgroundColor = UIColor.lightGray
             addsalesview.Line4.backgroundColor = UIColor.lightGray
             MakeDropDown(x:1)
+            ShowedMenyFlag = true
             menu.show()
         }
         else if textField.tag == 2 {
@@ -552,14 +674,18 @@ extension AddSaleViewController: UITextFieldDelegate{
             addsalesview.Line2.backgroundColor = UIColor.systemPink
             addsalesview.Line3.backgroundColor = UIColor.lightGray
             addsalesview.Line4.backgroundColor = UIColor.lightGray
-            menu.hide()
+            if ShowedMenyFlag == true {
+                menu.hide()
+            }
         }
         else if textField.tag == 3 {
             addsalesview.Line1.backgroundColor = UIColor.lightGray
             addsalesview.Line2.backgroundColor = UIColor.lightGray
             addsalesview.Line3.backgroundColor = UIColor.systemPink
             addsalesview.Line4.backgroundColor = UIColor.lightGray
-            menu.hide()
+            if ShowedMenyFlag == true {
+                menu.hide()
+            }
         }
         else {
             addsalesview.Line1.backgroundColor = UIColor.lightGray
@@ -607,15 +733,32 @@ extension AddSaleViewController: YCActionSheetDatePickerDelegate {
 
 extension AddSaleViewController: AddedProdcuts {
     
+    func AmmountBeforeEdit(Id:String ,Ammount: String) {
+        
+        if F == 3  && Picked == true {
+            print("Ammount Before Changed: \(Ammount)")
+            
+            let o = AmmountProducts()
+            o.Id = Id
+            o.OldAmount = Ammount
+            self.AmmountsArr.append(o)
+        }
+        else {
+            print("0")
+        }
+    }
+    
+    
     func NewProduct(Name:String,Ammount:String,Price:String,Id:String) {
         
-        var Flag = false
-        
+        // Update Current Product And Add it To table after replace old Data.
         if F == 3  && Picked == true {
             print("Picked Name: \(Name)")
             print("Picked Ammount: \(Ammount)")
             print("Picked Price: \(Price)")
             print("ProductID: \(Id)")
+            
+            //var Flag = false
             
             for i in 0...(ProductsArr.count - 1) {
                 if ProductsArr[i].Id == Id {
@@ -626,22 +769,15 @@ extension AddSaleViewController: AddedProdcuts {
                     ob.Price = Int(Price)
                     ob.FinalPrice = Int( Int(Ammount)! * Int(Price)! )
                     ob.Id = Id
+                    ob.status = "Old"
                     self.ProductsArr.append(ob)
                     addsalesview.tableView.reloadData()
-                    Flag = true
+                    //Flag = true
                     break
                 }
-            }
-            
-            if Flag == false {
-                let ob = Products()
-                ob.Name = Name
-                ob.Ammount = Int(Ammount)
-                ob.Price = Int(Price)
-                ob.FinalPrice = Int( Int(Ammount)! * Int(Price)! )
-                ob.Id = Id
-                self.ProductsArr.append(ob)
-                addsalesview.tableView.reloadData()
+                else {
+                    continue
+                }
             }
             
             // Get Array Count
@@ -654,6 +790,7 @@ extension AddSaleViewController: AddedProdcuts {
             }
             addsalesview.TotalFinalPrice.text = String(FinalPrice)
         }
+        // For Add Products
         else if Picked == false || F <= 3 {
             print("Picked Name: \(Name)")
             print("Picked Ammount: \(Ammount)")
@@ -666,6 +803,7 @@ extension AddSaleViewController: AddedProdcuts {
             ob.Price = Int(Price)
             ob.FinalPrice = Int( Int(Ammount)! * Int(Price)! )
             ob.Id = Id
+            ob.status = "New"
             self.ProductsArr.append(ob)
             addsalesview.tableView.reloadData()
             
@@ -673,5 +811,7 @@ extension AddSaleViewController: AddedProdcuts {
             addsalesview.TotalFinalPrice.text = String( Int(addsalesview.TotalFinalPrice.text!)! + (Int(Ammount)! * Int(Price)!) )
         }
     }
+    
+    
     
 }
