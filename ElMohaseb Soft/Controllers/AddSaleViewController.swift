@@ -181,22 +181,53 @@ class AddSaleViewController: UIViewController {
             SetMenuIntialize(ArrayData: customers , PrintedTextField: addsalesview.CustomerNameTextField)
             break
         case 2:
-            menu = {
-                let menu = DropDown()
-                menu.dataSource = Names
-                return menu
-            }()
-            menu.anchorView   = addsalesview.ProductNameTextField
-            menu.bottomOffset = CGPoint(x: 0, y:(menu.anchorView?.plainView.bounds.height)!)
-            
-            menu.selectionAction = {
-                       index , title in
-                self.addsalesview.ProductNameTextField.text = title
+            if self.Flag == true {
                 
-                // Open Products View.
-                self.F = 2
-                self.performSegue(withIdentifier: "AddProduct", sender: self)
+                var ProductsNames = [""]
+                
+                ProductsNames.removeAll()
+                for i in 0...(self.ProductsArr.count - 1) {
+                    ProductsNames.append(self.ProductsArr[i].Name!)
+                }
+                
+                let result = Set(Names).symmetricDifference(ProductsNames)
+                
+                menu = {
+                    let menu = DropDown()
+                    menu.dataSource = Array(result)
+                    return menu
+                }()
+                menu.anchorView   = addsalesview.ProductNameTextField
+                menu.bottomOffset = CGPoint(x: 0, y:(menu.anchorView?.plainView.bounds.height)!)
+                
+                menu.selectionAction = {
+                           index , title in
+                    self.addsalesview.ProductNameTextField.text = title
+                    
+                    // Open Products View.
+                    self.F = 2
+                    self.performSegue(withIdentifier: "AddProduct", sender: self)
+                }
             }
+            else if Flag == false {
+                menu = {
+                    let menu = DropDown()
+                    menu.dataSource = Names
+                    return menu
+                }()
+                menu.anchorView   = addsalesview.ProductNameTextField
+                menu.bottomOffset = CGPoint(x: 0, y:(menu.anchorView?.plainView.bounds.height)!)
+                
+                menu.selectionAction = {
+                           index , title in
+                    self.addsalesview.ProductNameTextField.text = title
+                    
+                    // Open Products View.
+                    self.F = 2
+                    self.performSegue(withIdentifier: "AddProduct", sender: self)
+                }
+            }
+            
             break
         default:
             print("Else")
@@ -402,6 +433,7 @@ class AddSaleViewController: UIViewController {
                     self.ProductsArr.append(ob)
                     self.addsalesview.tableView.reloadData()
                 }
+                self.MakeDropDown(x:2)
                 RappleActivityIndicatorView.stopAnimation()
                 
             }
@@ -692,7 +724,9 @@ extension AddSaleViewController: UITextFieldDelegate{
             addsalesview.Line2.backgroundColor = UIColor.lightGray
             addsalesview.Line3.backgroundColor = UIColor.lightGray
             addsalesview.Line4.backgroundColor = UIColor.systemPink
-            MakeDropDown(x:2)
+            if Flag == false {
+                self.MakeDropDown(x:2)
+            }
             menu.show()
         }
     }
