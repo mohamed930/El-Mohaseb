@@ -95,7 +95,7 @@ class AddBuyingViewController: UIViewController {
     // MARK:- TODO:- Function Add Products.
     @IBAction func BTNAddProducts (_ sender:Any) {
         F = 1
-        self.performSegue(withIdentifier: "AddProduct", sender: self)
+        self.performSegue(withIdentifier: "AddBuyingProducts", sender: self)
         
     }
     
@@ -380,7 +380,7 @@ class AddBuyingViewController: UIViewController {
         
         RappleActivityIndicatorView.startAnimatingWithLabel("loading", attributes: RappleModernAttributes)
         
-        Firebase.publicreadWithWhereCondtion(collectionName: "resete", key: "EmailID", value: (Auth.auth().currentUser?.email)!) { (snapshot) in
+        Firebase.publicreadWithWhereCondtion(collectionName: "Byuedresete", key: "EmailID", value: (Auth.auth().currentUser?.email)!) { (snapshot) in
             
             for q in snapshot.documents {
                 self.customers.append((q.get("CustomerName") as! String))
@@ -404,7 +404,7 @@ class AddBuyingViewController: UIViewController {
         
         //print("Success ID is: \(AddSaleViewController.ProductID!)")
         
-        Firebase.publicreadWithWhereCondtion(collectionName: "resete", key: "ProductsID", value: ProductID!) { (query) in
+        Firebase.publicreadWithWhereCondtion(collectionName: "Byuedresete", key: "ProductsID", value: ProductID!) { (query) in
             
             for q in query.documents {
                 self.addsalesview.CustomerNameTextField.text = (q.get("CustomerName") as! String)
@@ -421,7 +421,7 @@ class AddBuyingViewController: UIViewController {
                 self.ReseteId = q.documentID
             }
             
-            Firebase.publicreadWithWhereCondtion(collectionName: "SoldProducts", key: "ReseteID", value: self.ProductID!) { (snap) in
+            Firebase.publicreadWithWhereCondtion(collectionName: "BuyedProducts", key: "ReseteID", value: self.ProductID!) { (snap) in
                 
                 for doc in snap.documents {
                     let ob = Products()
@@ -461,7 +461,7 @@ class AddBuyingViewController: UIViewController {
                           "EmailID": Auth.auth().currentUser?.email! as Any
                           ]
         
-        Firebase.updateDocumnt(collectionName: "resete", documntId: self.ReseteId! , data: ReseteData) { (result) in
+        Firebase.updateDocumnt(collectionName: "Byuedresete", documntId: self.ReseteId! , data: ReseteData) { (result) in
             if result == "Success" {
                 
                 if self.ReseteTotalPrice == self.addsalesview.TotalFinalPrice.text! {
@@ -490,7 +490,7 @@ class AddBuyingViewController: UIViewController {
                             
                             // Update Data.
                             // ----------------------------
-                            Firestore.firestore().collection("SoldProducts").document(self.ProductsArr[i].Id!).setData(ProductsData) {
+                            Firestore.firestore().collection("Byuedresete").document(self.ProductsArr[i].Id!).setData(ProductsData) {
                                 error in
                                 if error != nil {
                                    RappleActivityIndicatorView.stopAnimation()

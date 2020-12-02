@@ -1459,7 +1459,7 @@
                                     <constraint firstAttribute="height" constant="54" id="mgp-Fv-JjI"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xu-VG-sku">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xu-VG-sku">
                                 <rect key="frame" x="29" y="388.66666666666669" width="317" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لا توجد عمليات ... اضغط (+) للإضافه" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOK-65-SCw">
@@ -1477,9 +1477,13 @@
                                     <constraint firstAttribute="height" constant="35" id="hvs-MR-QQ3"/>
                                 </constraints>
                             </view>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="se9-We-t0V">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="se9-We-t0V">
                                 <rect key="frame" x="0.0" y="122" width="375" height="594"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="laZ-e5-3tW" id="zgO-kY-RTu"/>
+                                    <outlet property="delegate" destination="laZ-e5-3tW" id="8r5-Tc-H5C"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="z2c-Cl-Jj8"/>
@@ -1502,6 +1506,7 @@
                             <constraint firstItem="z2c-Cl-Jj8" firstAttribute="trailing" secondItem="eZn-YL-rPg" secondAttribute="trailing" id="whx-0z-29o"/>
                         </constraints>
                         <connections>
+                            <outlet property="MessView" destination="6xu-VG-sku" id="G9e-fq-PZK"/>
                             <outlet property="countLabel" destination="aRS-ws-wpv" id="sHf-lW-cbu"/>
                             <outlet property="tableView" destination="se9-We-t0V" id="YCs-fl-b6b"/>
                         </connections>

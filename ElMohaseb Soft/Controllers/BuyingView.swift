@@ -11,4 +11,5 @@ import UIKit
 class BuyingView: UIView {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var MessView: UIView!
 }
