@@ -18,6 +18,10 @@ class HomeViewController: UIViewController {
     @IBAction func BTNSales (_ sender:Any) {
         Tools.openForm(MainViewName: "Main", FormID: "SalesView", ob: self)
     }
+    
+    @IBAction func BTNBuying (_ sender:Any) {
+        Tools.openForm(MainViewName: "Main", FormID: "BuyingView", ob: self)
+    }
 
 }
 

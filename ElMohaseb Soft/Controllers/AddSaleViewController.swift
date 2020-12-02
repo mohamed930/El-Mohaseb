@@ -136,6 +136,7 @@ class AddSaleViewController: UIViewController {
     private func createActionSheetDatePicker() -> YCActionSheetDatePickerVC {
         let vc = YCActionSheetDatePickerVC()
         vc.datePickerView.datePicker.datePickerMode = UIDatePicker.Mode.date
+        vc.datePickerView.contentViewInsets = .zero
         vc.delegate = self
         return vc
     }

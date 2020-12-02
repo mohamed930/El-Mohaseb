@@ -35,6 +35,12 @@
 		D37F04F52551A64100745E03 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F04F42551A64100745E03 /* LoginView.swift */; };
 		D37F04F72551A7C900745E03 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F04F62551A7C900745E03 /* SignupViewController.swift */; };
 		D37F04F92551A7DB00745E03 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F04F82551A7DB00745E03 /* SignupView.swift */; };
+		D381ED6E2572966200420E71 /* BuyingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D381ED6D2572966200420E71 /* BuyingViewController.swift */; };
+		D381ED71257296A100420E71 /* BuyingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D381ED70257296A100420E71 /* BuyingView.swift */; };
+		D3E62D0825779AD1007E674C /* AddBuyingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E62D0725779AD0007E674C /* AddBuyingViewController.swift */; };
+		D3E62D0B25779D2B007E674C /* AddBuyingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E62D0A25779D2B007E674C /* AddBuyingView.swift */; };
+		D3E62D0E2577A17E007E674C /* AddBuyingProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E62D0D2577A17E007E674C /* AddBuyingProductsViewController.swift */; };
+		D3E62D112577A2E2007E674C /* AddBuyingProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E62D102577A2E2007E674C /* AddBuyingProductsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +74,12 @@
 		D37F04F42551A64100745E03 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D37F04F62551A7C900745E03 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		D37F04F82551A7DB00745E03 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		D381ED6D2572966200420E71 /* BuyingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingViewController.swift; sourceTree = "<group>"; };
+		D381ED70257296A100420E71 /* BuyingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingView.swift; sourceTree = "<group>"; };
+		D3E62D0725779AD0007E674C /* AddBuyingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingViewController.swift; sourceTree = "<group>"; };
+		D3E62D0A25779D2B007E674C /* AddBuyingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingView.swift; sourceTree = "<group>"; };
+		D3E62D0D2577A17E007E674C /* AddBuyingProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingProductsViewController.swift; sourceTree = "<group>"; };
+		D3E62D102577A2E2007E674C /* AddBuyingProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingProductsView.swift; sourceTree = "<group>"; };
 		E404D5B0FED93E2E7FF86B4C /* Pods-ElMohaseb Soft.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElMohaseb Soft.release.xcconfig"; path = "Target Support Files/Pods-ElMohaseb Soft/Pods-ElMohaseb Soft.release.xcconfig"; sourceTree = "<group>"; };
 		FCD924432FDE74A1206CEAD7 /* Pods_ElMohaseb_Soft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElMohaseb_Soft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -185,6 +197,12 @@
 				D335520F254EE23000F3732A /* AddSaleView.swift */,
 				D3355219254F383500F3732A /* AddProductsViewController.swift */,
 				D335521B254F385600F3732A /* AddProductsView.swift */,
+				D381ED6D2572966200420E71 /* BuyingViewController.swift */,
+				D381ED70257296A100420E71 /* BuyingView.swift */,
+				D3E62D0725779AD0007E674C /* AddBuyingViewController.swift */,
+				D3E62D0A25779D2B007E674C /* AddBuyingView.swift */,
+				D3E62D0D2577A17E007E674C /* AddBuyingProductsViewController.swift */,
+				D3E62D102577A2E2007E674C /* AddBuyingProductsView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -247,7 +265,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Mohamed Ali";
 				TargetAttributes = {
 					D35FFD46254D7C51006F8654 = {
@@ -343,17 +361,23 @@
 				D35FFD4F254D7C51006F8654 /* HomeViewController.swift in Sources */,
 				D35FFD4B254D7C51006F8654 /* AppDelegate.swift in Sources */,
 				D335520E254EE20900F3732A /* AddSaleViewController.swift in Sources */,
+				D3E62D0B25779D2B007E674C /* AddBuyingView.swift in Sources */,
+				D3E62D0E2577A17E007E674C /* AddBuyingProductsViewController.swift in Sources */,
 				D3355207254ED1A700F3732A /* SalesHomeViewController.swift in Sources */,
 				D35FFD55254D7C51006F8654 /* ElMohaseb_Soft.xcdatamodeld in Sources */,
+				D381ED71257296A100420E71 /* BuyingView.swift in Sources */,
 				D3355215254F220B00F3732A /* ProductsCell.swift in Sources */,
 				D3355201254EC1DE00F3732A /* ReseteCell.swift in Sources */,
 				D34C7F372552DCBD00123868 /* Firebase.swift in Sources */,
 				D335521C254F385600F3732A /* AddProductsView.swift in Sources */,
+				D3E62D0825779AD1007E674C /* AddBuyingViewController.swift in Sources */,
 				D3355218254F248700F3732A /* Products.swift in Sources */,
 				D37F04F52551A64100745E03 /* LoginView.swift in Sources */,
 				D3355205254ED0C700F3732A /* Tools.swift in Sources */,
+				D3E62D112577A2E2007E674C /* AddBuyingProductsView.swift in Sources */,
 				D3355212254EE9A300F3732A /* color.swift in Sources */,
 				D37F04F32551A62600745E03 /* LoginViewController.swift in Sources */,
+				D381ED6E2572966200420E71 /* BuyingViewController.swift in Sources */,
 				D3355209254ED1D200F3732A /* HomeSalesView.swift in Sources */,
 				D335520C254ED36900F3732A /* Reports.swift in Sources */,
 				D3355210254EE23000F3732A /* AddSaleView.swift in Sources */,
@@ -408,6 +432,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -468,6 +493,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -509,7 +535,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "MyCompany196.ElMohaseb-Soft";
+				PRODUCT_BUNDLE_IDENTIFIER = "MyCompany198.ElMohaseb-Soft";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -529,7 +555,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "MyCompany196.ElMohaseb-Soft";
+				PRODUCT_BUNDLE_IDENTIFIER = "MyCompany198.ElMohaseb-Soft";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
