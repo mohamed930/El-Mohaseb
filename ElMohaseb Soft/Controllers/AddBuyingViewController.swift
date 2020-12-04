@@ -490,7 +490,7 @@ class AddBuyingViewController: UIViewController {
                             
                             // Update Data.
                             // ----------------------------
-                            Firestore.firestore().collection("Byuedresete").document(self.ProductsArr[i].Id!).setData(ProductsData) {
+                            Firestore.firestore().collection("BuyedProducts").document(self.ProductsArr[i].Id!).setData(ProductsData) {
                                 error in
                                 if error != nil {
                                    RappleActivityIndicatorView.stopAnimation()
@@ -524,25 +524,30 @@ class AddBuyingViewController: UIViewController {
                                                            }
                                                            
                                                            if self.AmmountsArr[j].Id! == self.ProductsArr[i].Id! {
+                                                            
+                                                                if Int(self.AmmountBeforeChanged)! > (self.ProductsArr[i].Ammount!) {
+                                                                    self.FinalAmmount = String( Int(OldAmmount)! - (Int( self.AmmountBeforeChanged)! - (self.ProductsArr[i].Ammount!)) )
+                                                                }
+                                                                else if Int(self.AmmountBeforeChanged)! < (self.ProductsArr[i].Ammount!) {
+                                                                    self.FinalAmmount = String( ((self.ProductsArr[i].Ammount!) - Int(self.AmmountBeforeChanged)!) + Int(OldAmmount)! )
+                                                                }
                                                                
-                                                               self.FinalAmmount = String( Int(Int(OldAmmount)! + Int(self.AmmountBeforeChanged)!) - (self.ProductsArr[i].Ammount!) )
-                                                               
-                                                               let data = ["Ammount": self.FinalAmmount]
-                                                               
-                                                               Firestore.firestore().collection("Products").document(ProductID).updateData(data) {
-                                                                   error in
-                                                                   if error != nil {
-                                                                      RappleActivityIndicatorView.stopAnimation()
-                                                                      ProgressHUD.showError("Error in your connection")
-                                                                   }
-                                                                   else {
-                                                                       if i == (self.ProductsArr.count - 1) {
-                                                                           RappleActivityIndicatorView.stopAnimation()
-                                                                           ProgressHUD.showSuccess("Success Resete Added!")
-                                                                           self.delegate.Reload(X: 1)
-                                                                           self.dismiss(animated: true, completion: nil)
+                                                                let data = ["Ammount": self.FinalAmmount]
+                                                                   
+                                                                Firestore.firestore().collection("Products").document(ProductID).updateData(data) {
+                                                                       error in
+                                                                       if error != nil {
+                                                                          RappleActivityIndicatorView.stopAnimation()
+                                                                          ProgressHUD.showError("Error in your connection")
                                                                        }
-                                                                   }
+                                                                       else {
+                                                                           if i == (self.ProductsArr.count - 1) {
+                                                                               RappleActivityIndicatorView.stopAnimation()
+                                                                               ProgressHUD.showSuccess("Success Resete Added!")
+                                                                               self.delegate.Reload(X: 1)
+                                                                               self.dismiss(animated: true, completion: nil)
+                                                                           }
+                                                                       }
                                                                }
                                                                
                                                            }
@@ -572,7 +577,7 @@ class AddBuyingViewController: UIViewController {
                             
                             // Add Data on Resete.
                             // -------------------------------
-                            Firestore.firestore().collection("SoldProducts").document().setData(ProductsData) {
+                            Firestore.firestore().collection("BuyedProducts").document().setData(ProductsData) {
                                 error in
                                 if error != nil {
                                    RappleActivityIndicatorView.stopAnimation()
@@ -589,7 +594,7 @@ class AddBuyingViewController: UIViewController {
                                         }
                                         else {
                                             
-                                            let data = ["Ammount": String(Int(query?.get("Ammount") as! String)! - self.ProductsArr[i].Ammount!)]
+                                            let data = ["Ammount": String(Int(query?.get("Ammount") as! String)! + self.ProductsArr[i].Ammount!)]
                                             
                                             Firestore.firestore().collection("Products").document(self.ProductsArr[i].Id!).updateData(data) {
                                                 error in
@@ -678,7 +683,7 @@ extension AddBuyingViewController: UITableViewDelegate {
                         RappleActivityIndicatorView.stopAnimation()
                         self.ProductPrice   = (q.get("Price") as! String)
                         self.OldProductAmmout = (q.get("Ammount") as! String)
-                        self.performSegue(withIdentifier: "AddProduct", sender: self)
+                        self.performSegue(withIdentifier: "AddBuyingProducts", sender: self)
                         break
                     }
                     else {

@@ -58,10 +58,11 @@ class AddBuyingProductsViewController: UIViewController {
         }
         else if (Flag == "2") {
             addproductsview.ProductNameTextField.text = ProductcName!
-            addproductsview.AmountTextField.becomeFirstResponder()
-            addproductsview.AmountTextField.placeholder = String(Int(NewProductAmmout!)! + Int(ProductAmmount!)!)
+            addproductsview.PriceTextField.becomeFirstResponder()
+            addproductsview.AmountTextField.placeholder = "0"
+            addproductsview.AmountTextField.text = String(Int(NewProductAmmout!)!)
             addproductsview.PriceTextField.placeholder = ProductPrice!
-            addproductsview.TotalPriceTextField.placeholder = String( Int(ProductPrice!)! * Int(addproductsview.AmountTextField.placeholder!)! )
+            addproductsview.TotalPriceTextField.placeholder = String( Int(ProductPrice!)! * Int(ProductAmmount!)! )
             
         }
         else {
