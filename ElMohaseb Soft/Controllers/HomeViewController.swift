@@ -22,6 +22,10 @@ class HomeViewController: UIViewController {
     @IBAction func BTNBuying (_ sender:Any) {
         Tools.openForm(MainViewName: "Main", FormID: "BuyingView", ob: self)
     }
+    
+    @IBAction func BTNCashing (_ sender:Any) {
+        Tools.openForm(MainViewName: "Main", FormID: "Salary Page", ob: self)
+    }
 
 }
 
