@@ -37,6 +37,15 @@
 		D37F04F92551A7DB00745E03 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F04F82551A7DB00745E03 /* SignupView.swift */; };
 		D381ED6E2572966200420E71 /* BuyingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D381ED6D2572966200420E71 /* BuyingViewController.swift */; };
 		D381ED71257296A100420E71 /* BuyingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D381ED70257296A100420E71 /* BuyingView.swift */; };
+		D3A63A32257CF2CD005D244A /* ClaculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A63A30257CF2CD005D244A /* ClaculatorViewController.swift */; };
+		D3A63A33257CF2CD005D244A /* ClaculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3A63A31257CF2CD005D244A /* ClaculatorViewController.xib */; };
+		D3A63A36257CF8BB005D244A /* UIVViewController-SLPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A63A35257CF8BB005D244A /* UIVViewController-SLPopup.swift */; };
+		D3A63A39257D2788005D244A /* SalaryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A63A38257D2788005D244A /* SalaryPageViewController.swift */; };
+		D3A63A3C257D2A68005D244A /* SalaryPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A63A3B257D2A68005D244A /* SalaryPageView.swift */; };
+		D3A63A3F257D3139005D244A /* EarnsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A63A3E257D3139005D244A /* EarnsPageViewController.swift */; };
+		D3A63A42257D334B005D244A /* EarnsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A63A41257D334B005D244A /* EarnsPageView.swift */; };
+		D3A63A45257D951B005D244A /* EarnsPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A63A44257D951B005D244A /* EarnsPriceViewController.swift */; };
+		D3A63A48257D954C005D244A /* EarnsPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A63A47257D954C005D244A /* EarnsPriceView.swift */; };
 		D3E62D0825779AD1007E674C /* AddBuyingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E62D0725779AD0007E674C /* AddBuyingViewController.swift */; };
 		D3E62D0B25779D2B007E674C /* AddBuyingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E62D0A25779D2B007E674C /* AddBuyingView.swift */; };
 		D3E62D0E2577A17E007E674C /* AddBuyingProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E62D0D2577A17E007E674C /* AddBuyingProductsViewController.swift */; };
@@ -76,6 +85,15 @@
 		D37F04F82551A7DB00745E03 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		D381ED6D2572966200420E71 /* BuyingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingViewController.swift; sourceTree = "<group>"; };
 		D381ED70257296A100420E71 /* BuyingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingView.swift; sourceTree = "<group>"; };
+		D3A63A30257CF2CD005D244A /* ClaculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaculatorViewController.swift; sourceTree = "<group>"; };
+		D3A63A31257CF2CD005D244A /* ClaculatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClaculatorViewController.xib; sourceTree = "<group>"; };
+		D3A63A35257CF8BB005D244A /* UIVViewController-SLPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVViewController-SLPopup.swift"; sourceTree = "<group>"; };
+		D3A63A38257D2788005D244A /* SalaryPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryPageViewController.swift; sourceTree = "<group>"; };
+		D3A63A3B257D2A68005D244A /* SalaryPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryPageView.swift; sourceTree = "<group>"; };
+		D3A63A3E257D3139005D244A /* EarnsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnsPageViewController.swift; sourceTree = "<group>"; };
+		D3A63A41257D334B005D244A /* EarnsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnsPageView.swift; sourceTree = "<group>"; };
+		D3A63A44257D951B005D244A /* EarnsPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnsPriceViewController.swift; sourceTree = "<group>"; };
+		D3A63A47257D954C005D244A /* EarnsPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnsPriceView.swift; sourceTree = "<group>"; };
 		D3E62D0725779AD0007E674C /* AddBuyingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingViewController.swift; sourceTree = "<group>"; };
 		D3E62D0A25779D2B007E674C /* AddBuyingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingView.swift; sourceTree = "<group>"; };
 		D3E62D0D2577A17E007E674C /* AddBuyingProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingProductsViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +139,7 @@
 			children = (
 				D3355204254ED0C700F3732A /* Tools.swift */,
 				D3355211254EE9A300F3732A /* color.swift */,
+				D3A63A35257CF8BB005D244A /* UIVViewController-SLPopup.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -203,6 +222,12 @@
 				D3E62D0A25779D2B007E674C /* AddBuyingView.swift */,
 				D3E62D0D2577A17E007E674C /* AddBuyingProductsViewController.swift */,
 				D3E62D102577A2E2007E674C /* AddBuyingProductsView.swift */,
+				D3A63A38257D2788005D244A /* SalaryPageViewController.swift */,
+				D3A63A3B257D2A68005D244A /* SalaryPageView.swift */,
+				D3A63A3E257D3139005D244A /* EarnsPageViewController.swift */,
+				D3A63A41257D334B005D244A /* EarnsPageView.swift */,
+				D3A63A44257D951B005D244A /* EarnsPriceViewController.swift */,
+				D3A63A47257D954C005D244A /* EarnsPriceView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -213,6 +238,7 @@
 				D35FFD50254D7C51006F8654 /* Main.storyboard */,
 				D35FFD58254D7C66006F8654 /* LaunchScreen.storyboard */,
 				D33551FE254EB86200F3732A /* Cell */,
+				D3A63A2F257CF24F005D244A /* Custom Alert */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +252,15 @@
 				D35FFD53254D7C51006F8654 /* ElMohaseb_Soft.xcdatamodeld */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		D3A63A2F257CF24F005D244A /* Custom Alert */ = {
+			isa = PBXGroup;
+			children = (
+				D3A63A30257CF2CD005D244A /* ClaculatorViewController.swift */,
+				D3A63A31257CF2CD005D244A /* ClaculatorViewController.xib */,
+			);
+			path = "Custom Alert";
 			sourceTree = "<group>";
 		};
 		E0DCB687AF9D1094AF3EA75B /* Frameworks */ = {
@@ -296,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A63A33257CF2CD005D244A /* ClaculatorViewController.xib in Resources */,
 				D3355216254F220B00F3732A /* ProductsCell.xib in Resources */,
 				D35FFD5A254D7C66006F8654 /* LaunchScreen.storyboard in Resources */,
 				D35FFD57254D7C66006F8654 /* Assets.xcassets in Resources */,
@@ -355,8 +391,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D35DF956255FC1B80070C1DC /* AmmountProducts.swift in Sources */,
+				D3A63A3C257D2A68005D244A /* SalaryPageView.swift in Sources */,
+				D3A63A42257D334B005D244A /* EarnsPageView.swift in Sources */,
 				D37F04F92551A7DB00745E03 /* SignupView.swift in Sources */,
 				D37F04F72551A7C900745E03 /* SignupViewController.swift in Sources */,
+				D3A63A39257D2788005D244A /* SalaryPageViewController.swift in Sources */,
+				D3A63A45257D951B005D244A /* EarnsPriceViewController.swift in Sources */,
 				D335521A254F383500F3732A /* AddProductsViewController.swift in Sources */,
 				D35FFD4F254D7C51006F8654 /* HomeViewController.swift in Sources */,
 				D35FFD4B254D7C51006F8654 /* AppDelegate.swift in Sources */,
@@ -364,6 +404,8 @@
 				D3E62D0B25779D2B007E674C /* AddBuyingView.swift in Sources */,
 				D3E62D0E2577A17E007E674C /* AddBuyingProductsViewController.swift in Sources */,
 				D3355207254ED1A700F3732A /* SalesHomeViewController.swift in Sources */,
+				D3A63A32257CF2CD005D244A /* ClaculatorViewController.swift in Sources */,
+				D3A63A3F257D3139005D244A /* EarnsPageViewController.swift in Sources */,
 				D35FFD55254D7C51006F8654 /* ElMohaseb_Soft.xcdatamodeld in Sources */,
 				D381ED71257296A100420E71 /* BuyingView.swift in Sources */,
 				D3355215254F220B00F3732A /* ProductsCell.swift in Sources */,
@@ -375,9 +417,11 @@
 				D37F04F52551A64100745E03 /* LoginView.swift in Sources */,
 				D3355205254ED0C700F3732A /* Tools.swift in Sources */,
 				D3E62D112577A2E2007E674C /* AddBuyingProductsView.swift in Sources */,
+				D3A63A48257D954C005D244A /* EarnsPriceView.swift in Sources */,
 				D3355212254EE9A300F3732A /* color.swift in Sources */,
 				D37F04F32551A62600745E03 /* LoginViewController.swift in Sources */,
 				D381ED6E2572966200420E71 /* BuyingViewController.swift in Sources */,
+				D3A63A36257CF8BB005D244A /* UIVViewController-SLPopup.swift in Sources */,
 				D3355209254ED1D200F3732A /* HomeSalesView.swift in Sources */,
 				D335520C254ED36900F3732A /* Reports.swift in Sources */,
 				D3355210254EE23000F3732A /* AddSaleView.swift in Sources */,

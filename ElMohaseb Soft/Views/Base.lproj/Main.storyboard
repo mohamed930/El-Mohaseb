@@ -1519,11 +1519,11 @@
             </objects>
             <point key="canvasLocation" x="805.60000000000002" y="742.61083743842369"/>
         </scene>
-        <!--View Controller-->
+        <!--Salary Page View Controller-->
         <scene sceneID="XJ7-FG-0kt">
             <objects>
-                <viewController storyboardIdentifier="Salary Page" id="ahK-8q-ADK" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ePq-1v-4v1">
+                <viewController storyboardIdentifier="Salary Page" id="ahK-8q-ADK" customClass="SalaryPageViewController" customModule="ElMohaseb_Soft" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ePq-1v-4v1" customClass="SalaryPageView" customModule="ElMohaseb_Soft" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1537,6 +1537,9 @@
                                             <constraint firstAttribute="height" constant="30" id="rXe-xG-Fw7"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="Button Back"/>
+                                        <connections>
+                                            <action selector="BTNBack:" destination="ahK-8q-ADK" eventType="touchUpInside" id="OJF-BL-IJO"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="قبض / صرف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkB-1U-p12">
                                         <rect key="frame" x="47" y="14" width="111" height="24"/>
@@ -1674,6 +1677,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="Button Add g"/>
                                         <connections>
+                                            <action selector="BTNAdd:" destination="ahK-8q-ADK" eventType="touchUpInside" id="JeJ-FH-NPy"/>
                                             <action selector="BTNAdd:" destination="VVo-rZ-IwF" eventType="touchUpInside" id="ngK-Iy-Yyd"/>
                                             <action selector="BTNAddBuying:" destination="laZ-e5-3tW" eventType="touchUpInside" id="gNc-iE-820"/>
                                         </connections>
@@ -1729,17 +1733,21 @@
                             <constraint firstItem="eJ4-oj-60N" firstAttribute="leading" secondItem="euF-Ib-LlW" secondAttribute="leading" id="yOf-dx-huu"/>
                             <constraint firstItem="ySG-8b-S9S" firstAttribute="leading" secondItem="vxx-1w-p6g" secondAttribute="leading" id="yp4-nA-Gi4"/>
                         </constraints>
+                        <connections>
+                            <outlet property="MessView" destination="TKG-mO-9Vk" id="ocd-BB-tqk"/>
+                            <outlet property="tableView" destination="ySG-8b-S9S" id="EnJ-Hs-anY"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qE-Qp-nWI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="805.60000000000002" y="1399.2503748125939"/>
         </scene>
-        <!--View Controller-->
+        <!--Earns Page View Controller-->
         <scene sceneID="goC-44-epO">
             <objects>
-                <viewController storyboardIdentifier="Earns Page" id="xrW-6v-gvH" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aQC-sl-Up8">
+                <viewController storyboardIdentifier="Earns Page" id="xrW-6v-gvH" customClass="EarnsPageViewController" customModule="ElMohaseb_Soft" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aQC-sl-Up8" customClass="EarnsPageView" customModule="ElMohaseb_Soft" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1753,6 +1761,9 @@
                                             <constraint firstAttribute="height" constant="30" id="5P5-1g-kIx"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="Button Back"/>
+                                        <connections>
+                                            <action selector="BTNBack:" destination="xrW-6v-gvH" eventType="touchUpInside" id="4em-I0-8Eq"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سند قبض" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cA1-pR-7pr">
                                         <rect key="frame" x="47" y="14" width="90" height="24"/>
@@ -1811,16 +1822,20 @@
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MwV-dk-cFp">
                                         <rect key="frame" x="316" y="8" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchButtonChangedWithSender:" destination="xrW-6v-gvH" eventType="valueChanged" id="UrU-31-zqL"/>
+                                        </connections>
                                     </switch>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="dho-pU-rB0">
-                                        <rect key="frame" x="13" y="13" width="295" height="20"/>
+                                        <rect key="frame" x="13" y="13.000000000000002" width="295" height="21.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqw-vT-S80">
-                                                <rect key="frame" x="0.0" y="0.0" width="51.666666666666664" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="51.666666666666664" height="21.666666666666668"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="الصندوق">
                                                         <attributes>
-                                                            <font key="NSFont" size="18" name=".ArabicUIText-Regular"/>
+                                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <font key="NSFont" size="15" name=".ArabicUIText-Regular"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             <integer key="NSUnderline" value="1"/>
                                                         </attributes>
@@ -1829,11 +1844,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWV-Am-JqD">
-                                                <rect key="frame" x="121.66666666666667" y="0.0" width="51.666666666666671" height="20"/>
+                                                <rect key="frame" x="121.66666666666667" y="0.0" width="51.666666666666671" height="21.666666666666668"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="محلي">
                                                         <attributes>
-                                                            <font key="NSFont" size="18" name=".ArabicUIText-Regular"/>
+                                                            <font key="NSFont" metaFont="system" size="18"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             <integer key="NSUnderline" value="1"/>
                                                         </attributes>
@@ -1842,7 +1857,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="قبض" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7B-SU-2XZ">
-                                                <rect key="frame" x="243.33333333333329" y="0.0" width="51.666666666666657" height="20"/>
+                                                <rect key="frame" x="243.33333333333329" y="0.0" width="51.666666666666657" height="21.666666666666668"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1850,7 +1865,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="JJC-th-yBS">
-                                        <rect key="frame" x="13" y="49" width="352" height="28"/>
+                                        <rect key="frame" x="13" y="50.666666666666657" width="352" height="28"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMb-w2-UfX">
                                                 <rect key="frame" x="0.0" y="0.0" width="91" height="28"/>
@@ -1858,17 +1873,23 @@
                                                 <state key="normal" title="05-12-2020">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="BTNShowData:" destination="xrW-6v-gvH" eventType="touchUpInside" id="gVk-SL-e51"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="RH9-i0-ZdN">
                                                 <rect key="frame" x="107" y="0.0" width="245" height="28"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="رقم#56" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lne-9Y-yzc">
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="رقم#56" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lne-9Y-yzc">
                                                         <rect key="frame" x="0.0" y="0.0" width="245" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="BnH-d7-bdT"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="xrW-6v-gvH" id="UCI-2W-Spc"/>
+                                                        </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAw-e4-yWs">
                                                         <rect key="frame" x="0.0" y="27" width="245" height="1"/>
@@ -1886,15 +1907,18 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JBv-qS-h06">
-                                        <rect key="frame" x="13" y="85" width="352" height="36"/>
+                                        <rect key="frame" x="13" y="86.666666666666657" width="352" height="36"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="البيان" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZ7-IP-BzT">
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="البيان" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZ7-IP-BzT">
                                                 <rect key="frame" x="0.0" y="0.0" width="352" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27" id="7wA-1n-dh1"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="xrW-6v-gvH" id="lkh-RX-sE5"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jea-Gn-V2H">
                                                 <rect key="frame" x="0.0" y="35" width="352" height="1"/>
@@ -1923,20 +1947,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="il7-7l-IGz">
-                                <rect key="frame" x="1" y="236" width="373" height="35"/>
+                                <rect key="frame" x="1" y="227" width="373" height="35"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="uTD-Jq-Y95">
                                         <rect key="frame" x="40" y="8" width="324" height="20"/>
                                         <subviews>
-                                            <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="القيد" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECy-qa-TgT">
+                                            <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="القيد" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECy-qa-TgT">
                                                 <rect key="frame" x="0.0" y="0.0" width="324" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="9mq-uX-Pcl"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="snv-WD-YyS" id="1Od-WO-U9y"/>
+                                                    <outlet property="delegate" destination="xrW-6v-gvH" id="oUB-RN-111"/>
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abc-Ra-pMy">
@@ -1955,6 +1979,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="Button Add g"/>
                                         <connections>
+                                            <action selector="BTNAdd:" destination="xrW-6v-gvH" eventType="touchUpInside" id="hVJ-Xu-u7H"/>
                                             <action selector="BTNAddProducts:" destination="snv-WD-YyS" eventType="touchUpInside" id="aqI-dk-Jym"/>
                                         </connections>
                                     </button>
@@ -1972,7 +1997,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BP1-EB-0HA">
-                                <rect key="frame" x="1" y="277" width="373" height="28"/>
+                                <rect key="frame" x="1" y="264" width="373" height="28"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="u6U-CE-2we">
                                         <rect key="frame" x="30" y="7.0000000000000009" width="334" height="14.333333333333336"/>
@@ -2057,17 +2082,17 @@
                                     <constraint firstAttribute="height" constant="1" id="xID-P1-k6d"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0bO-Uj-fLA">
-                                <rect key="frame" x="0.0" y="308" width="374" height="418"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0bO-Uj-fLA">
+                                <rect key="frame" x="0.0" y="295" width="374" height="427"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LXB-uu-5Uk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0bO-Uj-fLA" firstAttribute="top" secondItem="lEu-nY-LMW" secondAttribute="bottom" constant="1" id="008-I0-pHA"/>
+                            <constraint firstItem="0bO-Uj-fLA" firstAttribute="top" secondItem="lEu-nY-LMW" secondAttribute="bottom" constant="-12" id="008-I0-pHA"/>
                             <constraint firstItem="YHS-6d-xox" firstAttribute="leading" secondItem="LXB-uu-5Uk" secondAttribute="leading" constant="1" id="1dI-hX-2Mi"/>
-                            <constraint firstItem="kCP-L6-P85" firstAttribute="top" secondItem="0bO-Uj-fLA" secondAttribute="bottom" constant="4" id="2dG-SR-8hV"/>
+                            <constraint firstItem="kCP-L6-P85" firstAttribute="top" secondItem="0bO-Uj-fLA" secondAttribute="bottom" constant="8" id="2dG-SR-8hV"/>
                             <constraint firstItem="lEu-nY-LMW" firstAttribute="trailing" secondItem="BP1-EB-0HA" secondAttribute="trailing" id="8vg-ex-lTi"/>
                             <constraint firstItem="lEu-nY-LMW" firstAttribute="leading" secondItem="BP1-EB-0HA" secondAttribute="leading" id="L1C-O3-9uL"/>
                             <constraint firstItem="LXB-uu-5Uk" firstAttribute="trailing" secondItem="YHS-6d-xox" secondAttribute="trailing" constant="1" id="Mpc-iT-asK"/>
@@ -2075,33 +2100,48 @@
                             <constraint firstItem="il7-7l-IGz" firstAttribute="trailing" secondItem="YHS-6d-xox" secondAttribute="trailing" id="PwO-8v-1Sm"/>
                             <constraint firstItem="BP1-EB-0HA" firstAttribute="leading" secondItem="LXB-uu-5Uk" secondAttribute="leading" constant="1" id="Qfa-fb-Poo"/>
                             <constraint firstItem="JQ2-As-fKm" firstAttribute="leading" secondItem="LXB-uu-5Uk" secondAttribute="leading" id="RLv-Xr-fqg"/>
-                            <constraint firstItem="BP1-EB-0HA" firstAttribute="top" secondItem="il7-7l-IGz" secondAttribute="bottom" constant="6" id="SPV-uj-9TX"/>
+                            <constraint firstItem="BP1-EB-0HA" firstAttribute="top" secondItem="il7-7l-IGz" secondAttribute="bottom" constant="2" id="SPV-uj-9TX"/>
                             <constraint firstItem="YHS-6d-xox" firstAttribute="top" secondItem="plX-bh-Gb7" secondAttribute="bottom" constant="1" id="XPW-Rc-bIX"/>
                             <constraint firstItem="plX-bh-Gb7" firstAttribute="leading" secondItem="LXB-uu-5Uk" secondAttribute="leading" id="YYs-6u-crm"/>
                             <constraint firstItem="plX-bh-Gb7" firstAttribute="top" secondItem="LXB-uu-5Uk" secondAttribute="top" id="aeg-Tq-1F7"/>
                             <constraint firstItem="0bO-Uj-fLA" firstAttribute="leading" secondItem="LXB-uu-5Uk" secondAttribute="leading" id="fK0-Jq-1pD"/>
                             <constraint firstItem="LXB-uu-5Uk" firstAttribute="trailing" secondItem="JQ2-As-fKm" secondAttribute="trailing" id="h1t-Jl-sU6"/>
-                            <constraint firstItem="lEu-nY-LMW" firstAttribute="top" secondItem="BP1-EB-0HA" secondAttribute="bottom" constant="1" id="iQE-xq-Bii"/>
+                            <constraint firstItem="lEu-nY-LMW" firstAttribute="top" secondItem="BP1-EB-0HA" secondAttribute="bottom" constant="14" id="iQE-xq-Bii"/>
                             <constraint firstItem="LXB-uu-5Uk" firstAttribute="trailing" secondItem="kCP-L6-P85" secondAttribute="trailing" id="jua-kq-dNk"/>
                             <constraint firstItem="LXB-uu-5Uk" firstAttribute="trailing" secondItem="plX-bh-Gb7" secondAttribute="trailing" id="lQE-Md-XMk"/>
                             <constraint firstItem="LXB-uu-5Uk" firstAttribute="trailing" secondItem="BP1-EB-0HA" secondAttribute="trailing" constant="1" id="pqG-ad-DJf"/>
                             <constraint firstItem="il7-7l-IGz" firstAttribute="leading" secondItem="YHS-6d-xox" secondAttribute="leading" id="pyT-ig-iAM"/>
-                            <constraint firstItem="il7-7l-IGz" firstAttribute="top" secondItem="YHS-6d-xox" secondAttribute="bottom" constant="10" id="rog-4f-e8T"/>
+                            <constraint firstItem="il7-7l-IGz" firstAttribute="top" secondItem="YHS-6d-xox" secondAttribute="bottom" constant="1" id="rog-4f-e8T"/>
                             <constraint firstItem="LXB-uu-5Uk" firstAttribute="bottom" secondItem="JQ2-As-fKm" secondAttribute="bottom" id="tYM-CB-FCN"/>
                             <constraint firstItem="JQ2-As-fKm" firstAttribute="top" secondItem="kCP-L6-P85" secondAttribute="bottom" constant="8" symbolic="YES" id="uir-tJ-261"/>
                             <constraint firstItem="LXB-uu-5Uk" firstAttribute="trailing" secondItem="0bO-Uj-fLA" secondAttribute="trailing" constant="1" id="umh-bO-QHS"/>
                         </constraints>
+                        <connections>
+                            <outlet property="DateButton" destination="uMb-w2-UfX" id="GNl-Tl-sgW"/>
+                            <outlet property="Line1" destination="EAw-e4-yWs" id="znR-O2-4Ku"/>
+                            <outlet property="Line2" destination="Jea-Gn-V2H" id="CFh-45-J8p"/>
+                            <outlet property="Line3" destination="abc-Ra-pMy" id="Lgg-aM-VGc"/>
+                            <outlet property="NoteTextField" destination="cZ7-IP-BzT" id="RzW-cf-jzI"/>
+                            <outlet property="NumberTextField" destination="lne-9Y-yzc" id="Ilw-RP-mm2"/>
+                            <outlet property="TitleLabel" destination="cA1-pR-7pr" id="qSH-rN-1tx"/>
+                            <outlet property="TotalLabel" destination="Oir-RG-rEt" id="iHi-IH-hhA"/>
+                            <outlet property="TypeLabel" destination="r7B-SU-2XZ" id="SEX-bK-U0R"/>
+                            <outlet property="TypeSwitch" destination="MwV-dk-cFp" id="hBs-cR-tJD"/>
+                            <outlet property="TypeTextField" destination="ECy-qa-TgT" id="emS-Pe-phC"/>
+                            <outlet property="View1" destination="YHS-6d-xox" id="yO4-0n-TZV"/>
+                            <outlet property="View2" destination="il7-7l-IGz" id="VhB-5K-OaQ"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqk-03-KCr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1461.5999999999999" y="1397.2906403940888"/>
         </scene>
-        <!--View Controller-->
+        <!--Earns Price View Controller-->
         <scene sceneID="lMS-7d-tlK">
             <objects>
-                <viewController storyboardIdentifier="Earns Price" id="jvN-GG-NKq" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4r7-pn-Ct9">
+                <viewController storyboardIdentifier="Earns Price" id="jvN-GG-NKq" customClass="EarnsPriceViewController" customModule="ElMohaseb_Soft" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4r7-pn-Ct9" customClass="EarnsPriceView" customModule="ElMohaseb_Soft" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -2151,13 +2191,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IvB-bK-bL1">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="36"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="إسم الصنف" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTW-Ln-6Ad">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="إسم الصنف" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTW-Ln-6Ad">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27" id="Dvj-i2-Wbo"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="jvN-GG-NKq" id="BTO-HI-4QC"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4P1-S6-zV6">
                                                 <rect key="frame" x="0.0" y="35" width="315" height="1"/>
@@ -2171,13 +2214,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YBK-GB-a7s">
                                         <rect key="frame" x="0.0" y="44" width="315" height="36"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="المبلغ" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a2O-TB-gCr">
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="المبلغ" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a2O-TB-gCr">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27" id="rfZ-xN-jOA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="jvN-GG-NKq" id="eKD-Vn-mQR"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5V-sJ-6wn">
                                                 <rect key="frame" x="0.0" y="35" width="315" height="1"/>
@@ -2191,13 +2237,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hme-oX-s6c">
                                         <rect key="frame" x="0.0" y="88" width="315" height="36"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="الملاحظات" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MV4-Hc-lLw">
+                                            <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="الملاحظات" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MV4-Hc-lLw">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27" id="XFx-aX-PWC"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="jvN-GG-NKq" id="iBB-p5-eeE"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mq6-UZ-Z77">
                                                 <rect key="frame" x="0.0" y="35" width="315" height="1"/>
@@ -2220,6 +2269,9 @@
                                             <constraint firstAttribute="height" constant="29" id="Tf5-Bv-VMb"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="BTNClose"/>
+                                        <connections>
+                                            <action selector="BTNClose:" destination="jvN-GG-NKq" eventType="touchUpInside" id="glo-Y1-uMH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lr-Kb-rf1">
                                         <rect key="frame" x="196" y="0.0" width="130" height="29"/>
@@ -2247,6 +2299,15 @@
                             <constraint firstItem="631-pQ-ihO" firstAttribute="top" secondItem="Lmn-xa-0y3" secondAttribute="top" id="zCc-ZF-xCZ"/>
                             <constraint firstItem="631-pQ-ihO" firstAttribute="leading" secondItem="Lmn-xa-0y3" secondAttribute="leading" id="zLT-7H-kVQ"/>
                         </constraints>
+                        <connections>
+                            <outlet property="CalculatorImage" destination="Lv1-ct-jS9" id="jhG-XF-7K8"/>
+                            <outlet property="Line1" destination="4P1-S6-zV6" id="rDU-ch-hkt"/>
+                            <outlet property="Line2" destination="l5V-sJ-6wn" id="zUm-AL-cEM"/>
+                            <outlet property="Line3" destination="mq6-UZ-Z77" id="T0y-Nf-Aw5"/>
+                            <outlet property="ProductName" destination="lTW-Ln-6Ad" id="2KY-bB-Jhn"/>
+                            <outlet property="ProductNote" destination="MV4-Hc-lLw" id="0Yj-y2-gXu"/>
+                            <outlet property="ProductPrice" destination="a2O-TB-gCr" id="qEn-0u-yzv"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9k-qk-ArM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
