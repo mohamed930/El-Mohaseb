@@ -22,6 +22,9 @@
 		D3355218254F248700F3732A /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3355217254F248700F3732A /* Products.swift */; };
 		D335521A254F383500F3732A /* AddProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3355219254F383500F3732A /* AddProductsViewController.swift */; };
 		D335521C254F385600F3732A /* AddProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D335521B254F385600F3732A /* AddProductsView.swift */; };
+		D33DE20C257E438F00EC54C8 /* CashingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33DE20A257E438E00EC54C8 /* CashingCell.swift */; };
+		D33DE20D257E438F00EC54C8 /* CashingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33DE20B257E438E00EC54C8 /* CashingCell.xib */; };
+		D33DE210257E6DF800EC54C8 /* Earns.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33DE20F257E6DF800EC54C8 /* Earns.swift */; };
 		D34C7F342552CAB800123868 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D34C7F332552CAB800123868 /* GoogleService-Info.plist */; };
 		D34C7F372552DCBD00123868 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34C7F362552DCBD00123868 /* Firebase.swift */; };
 		D35DF956255FC1B80070C1DC /* AmmountProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35DF955255FC1B70070C1DC /* AmmountProducts.swift */; };
@@ -68,6 +71,9 @@
 		D3355217254F248700F3732A /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		D3355219254F383500F3732A /* AddProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsViewController.swift; sourceTree = "<group>"; };
 		D335521B254F385600F3732A /* AddProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsView.swift; sourceTree = "<group>"; };
+		D33DE20A257E438E00EC54C8 /* CashingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashingCell.swift; sourceTree = "<group>"; };
+		D33DE20B257E438E00EC54C8 /* CashingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CashingCell.xib; sourceTree = "<group>"; };
+		D33DE20F257E6DF800EC54C8 /* Earns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earns.swift; sourceTree = "<group>"; };
 		D34C7F332552CAB800123868 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D34C7F362552DCBD00123868 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		D35DF955255FC1B70070C1DC /* AmmountProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmmountProducts.swift; sourceTree = "<group>"; };
@@ -130,6 +136,8 @@
 				D3355200254EC1DE00F3732A /* ReseteCell.xib */,
 				D3355213254F220B00F3732A /* ProductsCell.swift */,
 				D3355214254F220B00F3732A /* ProductsCell.xib */,
+				D33DE20A257E438E00EC54C8 /* CashingCell.swift */,
+				D33DE20B257E438E00EC54C8 /* CashingCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -150,6 +158,7 @@
 				D335520B254ED36900F3732A /* Reports.swift */,
 				D3355217254F248700F3732A /* Products.swift */,
 				D35DF955255FC1B70070C1DC /* AmmountProducts.swift */,
+				D33DE20F257E6DF800EC54C8 /* Earns.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -336,6 +345,7 @@
 				D35FFD5A254D7C66006F8654 /* LaunchScreen.storyboard in Resources */,
 				D35FFD57254D7C66006F8654 /* Assets.xcassets in Resources */,
 				D35FFD52254D7C51006F8654 /* Main.storyboard in Resources */,
+				D33DE20D257E438F00EC54C8 /* CashingCell.xib in Resources */,
 				D3355202254EC1DE00F3732A /* ReseteCell.xib in Resources */,
 				D34C7F342552CAB800123868 /* GoogleService-Info.plist in Resources */,
 			);
@@ -403,6 +413,7 @@
 				D335520E254EE20900F3732A /* AddSaleViewController.swift in Sources */,
 				D3E62D0B25779D2B007E674C /* AddBuyingView.swift in Sources */,
 				D3E62D0E2577A17E007E674C /* AddBuyingProductsViewController.swift in Sources */,
+				D33DE20C257E438F00EC54C8 /* CashingCell.swift in Sources */,
 				D3355207254ED1A700F3732A /* SalesHomeViewController.swift in Sources */,
 				D3A63A32257CF2CD005D244A /* ClaculatorViewController.swift in Sources */,
 				D3A63A3F257D3139005D244A /* EarnsPageViewController.swift in Sources */,
@@ -416,6 +427,7 @@
 				D3355218254F248700F3732A /* Products.swift in Sources */,
 				D37F04F52551A64100745E03 /* LoginView.swift in Sources */,
 				D3355205254ED0C700F3732A /* Tools.swift in Sources */,
+				D33DE210257E6DF800EC54C8 /* Earns.swift in Sources */,
 				D3E62D112577A2E2007E674C /* AddBuyingProductsView.swift in Sources */,
 				D3A63A48257D954C005D244A /* EarnsPriceView.swift in Sources */,
 				D3355212254EE9A300F3732A /* color.swift in Sources */,

@@ -72,7 +72,7 @@ class EarnsPageViewController: UIViewController {
         if Status == false {
             
             // Make Page Cashing
-            earnspageview.TypeSwitch.setOn(true, animated: false)
+            earnspageview.TypeSwitch.setOn(true, animated: true)
             earnspageview.TitleLabel.text = "سند صرف"
             earnspageview.TypeLabel.text = "صرف"
             type = "Cash"
@@ -81,7 +81,7 @@ class EarnsPageViewController: UIViewController {
         else if Status == true {
             
             // Make Page Earns
-            earnspageview.TypeSwitch.setOn(false, animated: false)
+            earnspageview.TypeSwitch.setOn(false, animated: true)
             earnspageview.TitleLabel.text = "سند قبض"
             earnspageview.TypeLabel.text = "قبض"
             type = "Earns"

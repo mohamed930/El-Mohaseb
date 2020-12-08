@@ -1596,75 +1596,64 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJ4-oj-60N">
                                 <rect key="frame" x="0.0" y="97" width="375" height="26"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المجموع" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAO-TD-4vQ">
-                                        <rect key="frame" x="162.66666666666666" y="6" width="44" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="2cA-jL-2JD"/>
-                                            <constraint firstAttribute="width" priority="250" constant="44" id="LhJ-6n-oAg"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="التاريخ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOx-de-fGt">
-                                        <rect key="frame" x="249.66666666666663" y="6" width="33" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="Mjz-dr-jA0"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="رقم السند" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs3-oe-CB0">
-                                        <rect key="frame" x="318" y="6" width="49" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" priority="250" constant="49" id="agW-bI-abm"/>
-                                            <constraint firstAttribute="height" constant="15" id="s3Y-ZS-X93"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نوعه" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSL-fe-Gpw">
-                                        <rect key="frame" x="23" y="6" width="35" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="q2p-ou-1kU"/>
-                                            <constraint firstAttribute="width" priority="250" constant="35" id="xbw-DE-bEe"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البيان" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-ZA-ePO">
-                                        <rect key="frame" x="91.666666666666671" y="6" width="27" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" priority="250" constant="27" id="Yvb-Ag-j2c"/>
-                                            <constraint firstAttribute="height" constant="15" id="oNW-XK-z8x"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="gQ2-ym-9ku">
+                                        <rect key="frame" x="15" y="6" width="346" height="15"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نوعه" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSL-fe-Gpw">
+                                                <rect key="frame" x="0.0" y="0.0" width="19" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البيان" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-ZA-ePO">
+                                                <rect key="frame" x="69" y="0.0" width="22.333333333333329" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="9bU-hC-oHo"/>
+                                                    <constraint firstAttribute="width" priority="250" constant="81" id="NYM-Kf-eSY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المجموع" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAO-TD-4vQ">
+                                                <rect key="frame" x="141.33333333333334" y="0.0" width="36.666666666666657" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="RMU-7q-ivf"/>
+                                                    <constraint firstAttribute="width" priority="250" constant="55" id="qaj-4i-bGY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="التاريخ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOx-de-fGt">
+                                                <rect key="frame" x="228" y="0.0" width="27.333333333333343" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" priority="250" constant="97" id="7qE-ns-Mt8"/>
+                                                    <constraint firstAttribute="height" constant="15" id="DNd-q4-f7n"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="رقم السند" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs3-oe-CB0">
+                                                <rect key="frame" x="305.33333333333331" y="0.0" width="40.666666666666686" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="D4S-pa-Ci8"/>
+                                                    <constraint firstAttribute="width" priority="250" constant="48.666666666666686" id="vWY-Tb-gdf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.039215686270000001" green="0.43137254899999999" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="fyf-ZA-ePO" firstAttribute="top" secondItem="eJ4-oj-60N" secondAttribute="top" constant="6" id="DK1-Gf-7hj"/>
-                                    <constraint firstItem="GAO-TD-4vQ" firstAttribute="top" secondItem="eJ4-oj-60N" secondAttribute="top" constant="6" id="FZc-1k-OeV"/>
-                                    <constraint firstAttribute="bottom" secondItem="fs3-oe-CB0" secondAttribute="bottom" constant="5" id="HYQ-nu-MKm"/>
-                                    <constraint firstAttribute="trailing" secondItem="fs3-oe-CB0" secondAttribute="trailing" constant="8" id="Jp0-FX-d7Z"/>
-                                    <constraint firstAttribute="bottom" secondItem="GAO-TD-4vQ" secondAttribute="bottom" constant="5" id="N7F-G4-vgV"/>
-                                    <constraint firstAttribute="bottom" secondItem="mOx-de-fGt" secondAttribute="bottom" constant="5" id="NxY-Jp-UWF"/>
-                                    <constraint firstItem="vSL-fe-Gpw" firstAttribute="leading" secondItem="eJ4-oj-60N" secondAttribute="leading" constant="23" id="QCr-KA-bCz"/>
-                                    <constraint firstItem="mOx-de-fGt" firstAttribute="leading" secondItem="GAO-TD-4vQ" secondAttribute="trailing" constant="42.999999999999972" id="RcW-qo-2gT"/>
-                                    <constraint firstAttribute="bottom" secondItem="fyf-ZA-ePO" secondAttribute="bottom" constant="5" id="aeT-AK-Qjr"/>
-                                    <constraint firstAttribute="bottom" secondItem="vSL-fe-Gpw" secondAttribute="bottom" constant="5" id="cAy-6p-hb4"/>
-                                    <constraint firstItem="mOx-de-fGt" firstAttribute="top" secondItem="eJ4-oj-60N" secondAttribute="top" constant="6" id="csB-dl-3hE"/>
-                                    <constraint firstItem="vSL-fe-Gpw" firstAttribute="top" secondItem="eJ4-oj-60N" secondAttribute="top" constant="6" id="dLL-Jb-M0i"/>
-                                    <constraint firstItem="GAO-TD-4vQ" firstAttribute="leading" secondItem="fyf-ZA-ePO" secondAttribute="trailing" constant="44" id="fVw-xM-TLA"/>
                                     <constraint firstAttribute="height" constant="26" id="gw9-2j-aSI"/>
-                                    <constraint firstItem="fyf-ZA-ePO" firstAttribute="leading" secondItem="vSL-fe-Gpw" secondAttribute="trailing" constant="33.5" id="p6y-6A-Uj9"/>
-                                    <constraint firstItem="fs3-oe-CB0" firstAttribute="top" secondItem="eJ4-oj-60N" secondAttribute="top" constant="6" id="uWk-XV-zAb"/>
-                                    <constraint firstItem="fs3-oe-CB0" firstAttribute="leading" secondItem="mOx-de-fGt" secondAttribute="trailing" constant="35.333333333333371" id="viA-nB-TKl"/>
+                                    <constraint firstAttribute="trailing" secondItem="gQ2-ym-9ku" secondAttribute="trailing" constant="14" id="no5-pn-7We"/>
+                                    <constraint firstItem="gQ2-ym-9ku" firstAttribute="leading" secondItem="eJ4-oj-60N" secondAttribute="leading" constant="15" id="nqu-CY-2or"/>
+                                    <constraint firstItem="gQ2-ym-9ku" firstAttribute="top" secondItem="eJ4-oj-60N" secondAttribute="top" constant="6" id="pcU-GN-GKE"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m57-rs-g7X">
@@ -1695,7 +1684,7 @@
                                 <rect key="frame" x="29" y="388.66666666666669" width="317" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لا توجد عمليات ... اضغط (+) للإضافه" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBY-tY-zCh">
-                                        <rect key="frame" x="4.6666666666666572" y="5" width="308" height="25"/>
+                                        <rect key="frame" x="4.6666666666666572" y="4.666666666666627" width="308" height="25.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                         <color key="textColor" red="0.039215686270000001" green="0.43137254899999999" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1712,6 +1701,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ySG-8b-S9S">
                                 <rect key="frame" x="0.0" y="124" width="375" height="606"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ahK-8q-ADK" id="Ivq-oL-zSq"/>
+                                    <outlet property="delegate" destination="ahK-8q-ADK" id="bUk-MT-Zex"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vxx-1w-p6g"/>
@@ -1835,7 +1828,7 @@
                                                     <fragment content="الصندوق">
                                                         <attributes>
                                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="15" name=".ArabicUIText-Regular"/>
+                                                            <font key="NSFont" metaFont="system" size="15"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             <integer key="NSUnderline" value="1"/>
                                                         </attributes>
