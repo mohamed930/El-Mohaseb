@@ -22,4 +22,5 @@ class EarnsPageView: UIView {
     @IBOutlet weak var View1: UIView!
     @IBOutlet weak var View2: UIView!
     @IBOutlet weak var TotalLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
 }

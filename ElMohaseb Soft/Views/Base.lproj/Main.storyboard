@@ -1771,6 +1771,9 @@
                                             <constraint firstAttribute="width" constant="20" id="oni-W2-mxJ"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="Button Save"/>
+                                        <connections>
+                                            <action selector="BTNSave:" destination="xrW-6v-gvH" eventType="touchUpInside" id="tIg-00-H8x"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTK-Bs-Uik">
                                         <rect key="frame" x="355" y="13" width="7" height="25"/>
@@ -1828,7 +1831,7 @@
                                                     <fragment content="الصندوق">
                                                         <attributes>
                                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" metaFont="system" size="15"/>
+                                                            <font key="NSFont" metaFont="system"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             <integer key="NSUnderline" value="1"/>
                                                         </attributes>
@@ -1992,17 +1995,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BP1-EB-0HA">
                                 <rect key="frame" x="1" y="264" width="373" height="28"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="u6U-CE-2we">
-                                        <rect key="frame" x="30" y="7.0000000000000009" width="334" height="14.333333333333336"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="u6U-CE-2we">
+                                        <rect key="frame" x="61" y="6.0000000000000009" width="275" height="14.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ملاحظات" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyH-cA-kCL">
-                                                <rect key="frame" x="0.0" y="0.0" width="111" height="14.333333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="45.666666666666664" height="14.333333333333334"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المبلغ" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2p-Nr-215">
-                                                <rect key="frame" x="166" y="0.0" width="55" height="14.333333333333334"/>
+                                                <rect key="frame" x="125.66666666666666" y="0.0" width="30" height="14.333333333333334"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="250" constant="55" id="Q9z-RJ-CF9"/>
                                                 </constraints>
@@ -2011,7 +2014,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الحساب" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j12-Mf-GCN">
-                                                <rect key="frame" x="276" y="0.0" width="58" height="14.333333333333334"/>
+                                                <rect key="frame" x="235.66666666666669" y="0.0" width="39.333333333333314" height="14.333333333333334"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="250" constant="58" id="oRi-ex-YmG"/>
                                                 </constraints>
@@ -2024,14 +2027,14 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="u6U-CE-2we" firstAttribute="top" secondItem="BP1-EB-0HA" secondAttribute="top" constant="7.0000000000000036" id="DXw-wp-0WZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="u6U-CE-2we" secondAttribute="trailing" constant="9" id="Q4S-xU-nsV"/>
-                                    <constraint firstItem="u6U-CE-2we" firstAttribute="leading" secondItem="BP1-EB-0HA" secondAttribute="leading" constant="30" id="UVg-9f-lKq"/>
+                                    <constraint firstItem="u6U-CE-2we" firstAttribute="top" secondItem="BP1-EB-0HA" secondAttribute="top" constant="6" id="2Go-K1-FEM"/>
+                                    <constraint firstItem="u6U-CE-2we" firstAttribute="leading" secondItem="BP1-EB-0HA" secondAttribute="leading" constant="61" id="RMj-KZ-ci4"/>
                                     <constraint firstAttribute="height" constant="28" id="lpt-4o-zMQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="u6U-CE-2we" secondAttribute="trailing" constant="37" id="zSO-b6-YVI"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lEu-nY-LMW">
-                                <rect key="frame" x="1" y="306" width="373" height="1"/>
+                                <rect key="frame" x="1" y="294" width="373" height="1"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="hpk-PW-R1c"/>
@@ -2076,14 +2079,18 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0bO-Uj-fLA">
-                                <rect key="frame" x="0.0" y="295" width="374" height="427"/>
+                                <rect key="frame" x="0.0" y="300" width="374" height="422"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xrW-6v-gvH" id="462-My-3Dc"/>
+                                    <outlet property="delegate" destination="xrW-6v-gvH" id="C24-p7-dLW"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LXB-uu-5Uk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0bO-Uj-fLA" firstAttribute="top" secondItem="lEu-nY-LMW" secondAttribute="bottom" constant="-12" id="008-I0-pHA"/>
+                            <constraint firstItem="0bO-Uj-fLA" firstAttribute="top" secondItem="lEu-nY-LMW" secondAttribute="bottom" constant="5" id="008-I0-pHA"/>
                             <constraint firstItem="YHS-6d-xox" firstAttribute="leading" secondItem="LXB-uu-5Uk" secondAttribute="leading" constant="1" id="1dI-hX-2Mi"/>
                             <constraint firstItem="kCP-L6-P85" firstAttribute="top" secondItem="0bO-Uj-fLA" secondAttribute="bottom" constant="8" id="2dG-SR-8hV"/>
                             <constraint firstItem="lEu-nY-LMW" firstAttribute="trailing" secondItem="BP1-EB-0HA" secondAttribute="trailing" id="8vg-ex-lTi"/>
@@ -2099,7 +2106,7 @@
                             <constraint firstItem="plX-bh-Gb7" firstAttribute="top" secondItem="LXB-uu-5Uk" secondAttribute="top" id="aeg-Tq-1F7"/>
                             <constraint firstItem="0bO-Uj-fLA" firstAttribute="leading" secondItem="LXB-uu-5Uk" secondAttribute="leading" id="fK0-Jq-1pD"/>
                             <constraint firstItem="LXB-uu-5Uk" firstAttribute="trailing" secondItem="JQ2-As-fKm" secondAttribute="trailing" id="h1t-Jl-sU6"/>
-                            <constraint firstItem="lEu-nY-LMW" firstAttribute="top" secondItem="BP1-EB-0HA" secondAttribute="bottom" constant="14" id="iQE-xq-Bii"/>
+                            <constraint firstItem="lEu-nY-LMW" firstAttribute="top" secondItem="BP1-EB-0HA" secondAttribute="bottom" constant="2" id="iQE-xq-Bii"/>
                             <constraint firstItem="LXB-uu-5Uk" firstAttribute="trailing" secondItem="kCP-L6-P85" secondAttribute="trailing" id="jua-kq-dNk"/>
                             <constraint firstItem="LXB-uu-5Uk" firstAttribute="trailing" secondItem="plX-bh-Gb7" secondAttribute="trailing" id="lQE-Md-XMk"/>
                             <constraint firstItem="LXB-uu-5Uk" firstAttribute="trailing" secondItem="BP1-EB-0HA" secondAttribute="trailing" constant="1" id="pqG-ad-DJf"/>
@@ -2123,6 +2130,7 @@
                             <outlet property="TypeTextField" destination="ECy-qa-TgT" id="emS-Pe-phC"/>
                             <outlet property="View1" destination="YHS-6d-xox" id="yO4-0n-TZV"/>
                             <outlet property="View2" destination="il7-7l-IGz" id="VhB-5K-OaQ"/>
+                            <outlet property="tableView" destination="0bO-Uj-fLA" id="4Vm-Wm-HPn"/>
                         </connections>
                     </view>
                 </viewController>
@@ -2273,6 +2281,9 @@
                                             <constraint firstAttribute="width" constant="130" id="wc5-yd-IlC"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="BTNAdd"/>
+                                        <connections>
+                                            <action selector="BTNAdd:" destination="jvN-GG-NKq" eventType="touchUpInside" id="gPU-Hw-B56"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

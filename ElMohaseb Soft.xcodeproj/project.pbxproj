@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9FDD9A92832B9A030C62704A /* Pods_ElMohaseb_Soft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD924432FDE74A1206CEAD7 /* Pods_ElMohaseb_Soft.framework */; };
+		D31DFB402580F7A600DD4B4F /* EarnsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31DFB3E2580F7A500DD4B4F /* EarnsCell.swift */; };
+		D31DFB412580F7A600DD4B4F /* EarnsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31DFB3F2580F7A600DD4B4F /* EarnsCell.xib */; };
+		D31DFB4425811D9200DD4B4F /* Cashing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31DFB4325811D9200DD4B4F /* Cashing.swift */; };
 		D3355201254EC1DE00F3732A /* ReseteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33551FF254EC1DE00F3732A /* ReseteCell.swift */; };
 		D3355202254EC1DE00F3732A /* ReseteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3355200254EC1DE00F3732A /* ReseteCell.xib */; };
 		D3355205254ED0C700F3732A /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3355204254ED0C700F3732A /* Tools.swift */; };
@@ -57,6 +60,9 @@
 
 /* Begin PBXFileReference section */
 		9F6644746E90C0585E46BF72 /* Pods-ElMohaseb Soft.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElMohaseb Soft.debug.xcconfig"; path = "Target Support Files/Pods-ElMohaseb Soft/Pods-ElMohaseb Soft.debug.xcconfig"; sourceTree = "<group>"; };
+		D31DFB3E2580F7A500DD4B4F /* EarnsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnsCell.swift; sourceTree = "<group>"; };
+		D31DFB3F2580F7A600DD4B4F /* EarnsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EarnsCell.xib; sourceTree = "<group>"; };
+		D31DFB4325811D9200DD4B4F /* Cashing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cashing.swift; sourceTree = "<group>"; };
 		D33551FF254EC1DE00F3732A /* ReseteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReseteCell.swift; sourceTree = "<group>"; };
 		D3355200254EC1DE00F3732A /* ReseteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReseteCell.xib; sourceTree = "<group>"; };
 		D3355204254ED0C700F3732A /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
@@ -138,6 +144,8 @@
 				D3355214254F220B00F3732A /* ProductsCell.xib */,
 				D33DE20A257E438E00EC54C8 /* CashingCell.swift */,
 				D33DE20B257E438E00EC54C8 /* CashingCell.xib */,
+				D31DFB3E2580F7A500DD4B4F /* EarnsCell.swift */,
+				D31DFB3F2580F7A600DD4B4F /* EarnsCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -159,6 +167,7 @@
 				D3355217254F248700F3732A /* Products.swift */,
 				D35DF955255FC1B70070C1DC /* AmmountProducts.swift */,
 				D33DE20F257E6DF800EC54C8 /* Earns.swift */,
+				D31DFB4325811D9200DD4B4F /* Cashing.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -347,6 +356,7 @@
 				D35FFD52254D7C51006F8654 /* Main.storyboard in Resources */,
 				D33DE20D257E438F00EC54C8 /* CashingCell.xib in Resources */,
 				D3355202254EC1DE00F3732A /* ReseteCell.xib in Resources */,
+				D31DFB412580F7A600DD4B4F /* EarnsCell.xib in Resources */,
 				D34C7F342552CAB800123868 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +425,7 @@
 				D3E62D0E2577A17E007E674C /* AddBuyingProductsViewController.swift in Sources */,
 				D33DE20C257E438F00EC54C8 /* CashingCell.swift in Sources */,
 				D3355207254ED1A700F3732A /* SalesHomeViewController.swift in Sources */,
+				D31DFB402580F7A600DD4B4F /* EarnsCell.swift in Sources */,
 				D3A63A32257CF2CD005D244A /* ClaculatorViewController.swift in Sources */,
 				D3A63A3F257D3139005D244A /* EarnsPageViewController.swift in Sources */,
 				D35FFD55254D7C51006F8654 /* ElMohaseb_Soft.xcdatamodeld in Sources */,
@@ -436,6 +447,7 @@
 				D3A63A36257CF8BB005D244A /* UIVViewController-SLPopup.swift in Sources */,
 				D3355209254ED1D200F3732A /* HomeSalesView.swift in Sources */,
 				D335520C254ED36900F3732A /* Reports.swift in Sources */,
+				D31DFB4425811D9200DD4B4F /* Cashing.swift in Sources */,
 				D3355210254EE23000F3732A /* AddSaleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

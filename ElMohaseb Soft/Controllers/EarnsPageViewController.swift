@@ -20,6 +20,9 @@ class EarnsPageViewController: UIViewController {
     var Status = Bool()
     var type = String()
     var CurrentDate: String?
+    var Action = false
+    
+    var ColumnArray = Array<Cashing>()
     
 
     override func viewDidLoad() {
@@ -28,17 +31,28 @@ class EarnsPageViewController: UIViewController {
         Tools.MakeViewLine(view: earnspageview.View1)
         Tools.MakeViewLine(view: earnspageview.View2)
         
+        earnspageview.tableView.register(UINib(nibName: "EarnsCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        
         // MARK:- TODO:- This Line for adding Geusters.
         screenedge = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(Back(_:)))
         screenedge.edges = .left
         view.addGestureRecognizer(screenedge)
         
-        ChangeStatus()
+        if Action == true {
+            GetDate()
+        }
+        else {
+            ChangeStatus()
+        }
     }
     
     // MARK:- TODO:- Function Button Back.
     @IBAction func BTNBack (_ sender: Any) {
         ActionBack(x: 1)
+    }
+    
+    @IBAction func BTNSave (_ sender:Any) {
+        Save()
     }
     
     @IBAction func switchButtonChanged (sender: UISwitch) {
@@ -58,6 +72,7 @@ class EarnsPageViewController: UIViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil)
         let next = vc.instantiateViewController(withIdentifier: "Earns Price") as! EarnsPriceViewController
         next.NewFlag = true
+        next.delegate = self
         self.present(next, animated: true, completion: nil)
         
     }
@@ -89,6 +104,25 @@ class EarnsPageViewController: UIViewController {
         }
     }
     
+    // MARK:- TODO:- Load Resete Data.
+    func GetDate () {
+        let ob = Cashing()
+        ob.Name = "Mohamed Ali"
+        ob.price = 11.2
+        self.ColumnArray.append(ob)
+        
+        let ob1 = Cashing()
+        ob1.Name = "Zyad"
+        ob1.price = 15
+        self.ColumnArray.append(ob1)
+        
+        let ob2 = Cashing()
+        ob2.Name = "Kamel El-wazear"
+        ob2.price = 20.66
+        ob2.Note = "It's a good time!"
+        self.ColumnArray.append(ob2)
+    }
+    
     // MARK:- TODO:- This Method For Show if he wanna to know save or not.
     func ActionBack (x:Int) {
         let Alert = UIAlertController(title: "تاكيد", message: "هل تريد الحفظ؟", preferredStyle: .alert)
@@ -101,11 +135,16 @@ class EarnsPageViewController: UIViewController {
             
             // MARK:- TODO:- Make Method Call SaveFullTableData To Save Data To Database.
             print("Saved!")
-            self.dismiss(animated: true, completion: nil)
+            self.Save()
+            
             
         }))
         
         self.present(Alert, animated: true, completion: nil)
+    }
+    
+    func Save() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func createActionSheetDatePicker() -> YCActionSheetDatePickerVC {
@@ -173,5 +212,44 @@ extension EarnsPageViewController: UITextFieldDelegate {
             earnspageview.Line2.backgroundColor = UIColor.lightGray
             earnspageview.Line3.backgroundColor = UIColor.systemPink
         }
+    }
+}
+
+extension EarnsPageViewController: UITableViewDelegate {
+    
+}
+
+extension EarnsPageViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ColumnArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell: EarnsCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! EarnsCell
+        
+        cell.NameLabel.text = ColumnArray[indexPath.row].Name
+        cell.PriceLabel.text = String(ColumnArray[indexPath.row].price)
+        cell.NoteLabel.text = ColumnArray[indexPath.row].Note ?? ""
+        
+        return cell
+        
+    }
+    
+    
+}
+
+extension EarnsPageViewController: SendValue {
+    
+    func Send(Name: String, Price: String, Note: String) {
+        
+        let ob = Cashing()
+        ob.Name = Name
+        ob.price = Double(Price)!
+        ob.Note = Note
+        self.ColumnArray.append(ob)
+        self.earnspageview.tableView.reloadData()
+        
     }
 }

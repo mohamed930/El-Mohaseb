@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SendValue {
+    func Send (Name: String , Price: String , Note: String)
+}
+
 class EarnsPriceViewController: UIViewController {
     
     var earnspriceview: EarnsPriceView! {
@@ -17,6 +21,8 @@ class EarnsPriceViewController: UIViewController {
     
     var NewFlag = Bool()
     var screenedge : UIScreenEdgePanGestureRecognizer!
+    
+    var delegate: SendValue!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +45,17 @@ class EarnsPriceViewController: UIViewController {
     
     @IBAction func BTNClose(_ sender:Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func BTNAdd (_ sender:Any) {
+        
+        if self.earnspriceview.ProductName.text == "" || self.earnspriceview.ProductPrice.text == "" {
+            Tools.createAlert(Title: "خطا", Mess: "من فضلك املي كل البيانات", ob: self)
+        }
+        else {
+            self.delegate.Send(Name: self.earnspriceview.ProductName.text! , Price: self.earnspriceview.ProductPrice.text! , Note: self.earnspriceview.ProductNote.text!)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc func gotoCairo(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -66,15 +83,10 @@ class EarnsPriceViewController: UIViewController {
 }
 
 extension EarnsPriceViewController: popupCalculator {
-    func Back() {
+    func Back(X:String) {
         self.dismissPopupViewController(animationType: .BottomBottom)
+        self.earnspriceview.ProductPrice.text = (X)
     }
-    
-    func Result(X:Double) {
-        print("R: \(X)")
-    }
-    
-    
 }
 
 extension EarnsPriceViewController: UITextFieldDelegate {
