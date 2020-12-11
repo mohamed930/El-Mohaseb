@@ -44,6 +44,22 @@ class Firebase {
         }
     }
     
+    // MARK:- TODO:- This Method For Adding Data with Call Back.
+    public static func addData1 (collectionName:String,documentID:String,data:[String:Any], complination: @escaping (String) -> Void) {
+        
+        Firestore.firestore().collection(collectionName).document(documentID).setData(data){
+            error in
+            if error != nil {
+                RappleActivityIndicatorView.stopAnimation()
+                ProgressHUD.showError("Error in Connection")
+            }
+            else {
+                complination("Success")
+            }
+        }
+        
+    }
+    
     // MARK:- TODO:- This Method For Make a login opertation.
     public static func MakeLogin (Email:String,Password:String,completion: @escaping (String) -> ())  {
         

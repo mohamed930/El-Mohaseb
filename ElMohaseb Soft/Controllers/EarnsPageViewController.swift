@@ -8,6 +8,10 @@
 
 import UIKit
 import YCActionSheetDatePicker
+import RappleProgressHUD
+import Firebase
+import FirebaseFirestore
+import ProgressHUD
 
 class EarnsPageViewController: UIViewController {
     
@@ -144,7 +148,68 @@ class EarnsPageViewController: UIViewController {
     }
     
     func Save() {
-        self.dismiss(animated: true, completion: nil)
+        print(self.type)
+        RappleActivityIndicatorView.startAnimatingWithLabel("loading", attributes: RappleModernAttributes)
+        
+        let id = UUID()
+        var data = [String:Any]()
+        
+        if self.type == "Earns" {
+            data = [
+                        "NumberOfResete": self.earnspageview.NumberTextField.text!,
+                        "NoteOfResete": self.earnspageview.NoteTextField.text!,
+                        "DateOfResete": self.CurrentDate!,
+                        "EarnsID": id.uuidString,
+                        "TotalResete": self.earnspageview.TotalLabel.text!,
+                        "Type": "قبض",
+                        "Target": "الصندوق"
+                   ] as [String:Any]
+        }
+        else if self.type == "Cash" {
+            data = [
+                        "NumberOfResete": self.earnspageview.NumberTextField.text!,
+                        "NoteOfResete": self.earnspageview.NoteTextField.text!,
+                        "DateOfResete": self.CurrentDate!,
+                        "EarnsID": id.uuidString,
+                        "TotalResete": self.earnspageview.TotalLabel.text!,
+                        "Type": "صرف",
+                        "Target": "الصندوق"
+                   ] as [String:Any]
+        }
+        
+        Firebase.addData1(collectionName: "CashingResetes", documentID: id.uuidString, data: data) { (r) in
+            if r == "Success" {
+                
+                // After Adding Resete Add Elements to EarnsElements
+                for i in 0...(self.ColumnArray.count - 1) {
+                    
+                    let ColumnData = [
+                                        "Title":self.ColumnArray[i].Name,
+                                        "Price": self.ColumnArray[i].price,
+                                        "Note": self.ColumnArray[i].Note ?? "",
+                                        "ReseteID": id.uuidString
+                                     ] as [String:Any]
+                    
+                    Firestore.firestore().collection("EarnsElements").document().setData(ColumnData) { (error) in
+                        if error != nil {
+                            RappleActivityIndicatorView.stopAnimation()
+                            ProgressHUD.showError("Connection wasn't Estable")
+                        }
+                        else {
+                            if  i == (self.ColumnArray.count - 1) {
+                                RappleActivityIndicatorView.stopAnimation()
+                                ProgressHUD.showSuccess("Added Successfully")
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                           
+                        }
+                    }
+                    
+                }
+                
+            }
+        }
+        
     }
     
     private func createActionSheetDatePicker() -> YCActionSheetDatePickerVC {
@@ -250,6 +315,8 @@ extension EarnsPageViewController: SendValue {
         ob.Note = Note
         self.ColumnArray.append(ob)
         self.earnspageview.tableView.reloadData()
+        
+        self.earnspageview.TotalLabel.text = String(Double(self.earnspageview.TotalLabel.text!)! + Double(Price)!)
         
     }
 }
