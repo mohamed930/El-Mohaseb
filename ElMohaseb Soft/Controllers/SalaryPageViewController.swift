@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import RappleProgressHUD
 
 class SalaryPageViewController: UIViewController {
     
@@ -47,6 +50,7 @@ class SalaryPageViewController: UIViewController {
             let next = vc.instantiateViewController(withIdentifier: "Earns Page") as! EarnsPageViewController
             next.modalPresentationStyle = .fullScreen
             next.Status = true
+            next.delegate = self
             self.present(next, animated: true, completion: nil)
             
             
@@ -59,6 +63,7 @@ class SalaryPageViewController: UIViewController {
             let next = vc.instantiateViewController(withIdentifier: "Earns Page") as! EarnsPageViewController
             next.modalPresentationStyle = .fullScreen
             next.Status = false
+            next.delegate = self
             self.present(next, animated: true, completion: nil)
             
         }))
@@ -69,8 +74,7 @@ class SalaryPageViewController: UIViewController {
         }
     }
     
-    @objc func alertControllerBackgroundTapped()
-    {
+    @objc func alertControllerBackgroundTapped() {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -78,45 +82,31 @@ class SalaryPageViewController: UIViewController {
         /*salarypageview.tableView.isHidden = true
         salarypageview.MessView.isHidden = false*/
         
-        let ob = Earns()
-        ob.Number = 1
-        ob.Name = "07-12-2020"
-        ob.Total = "90 محلي"
-        ob.type = "صرف" + " - \n" + "الصندوق"
-        CashingArr.append(ob)
-        salarypageview.tableView.reloadData()
-        
-        let ob1 = Earns()
-        ob1.Number = 2
-        ob1.Name = "07-12-2020"
-        ob1.Total = "80 محلي"
-        ob1.type = """
-صرف - \
-الصندوق
-"""
-        CashingArr.append(ob1)
-        
-        
-        let ob2 = Earns()
-        ob2.Number = 3
-        ob2.Name = "08-12-2020"
-        ob2.Total = "120 محلي"
-        ob2.type = """
-قبض - \
-الصندوق
-"""
-        CashingArr.append(ob2)
-        
-        let ob3 = Earns()
-        ob3.Number = 4
-        ob3.Name = "08-12-2020"
-        ob3.Total = "50 محلي"
-        ob3.Note = "هبحك لو رنيت"
-        ob3.type = """
-قبض - \
-الصندوق
-"""
-        CashingArr.append(ob3)
+        Firebase.publicreadWithWhereCondtion(collectionName: "CashingResetes", key: "UserName", value: (Auth.auth().currentUser?.email!)!) { (snap) in
+            
+            if snap.count == 0 {
+                self.salarypageview.tableView.isHidden = true
+                self.salarypageview.MessView.isHidden = false
+            }
+            else {
+                self.salarypageview.tableView.isHidden = false
+                self.salarypageview.MessView.isHidden = true
+                
+                for q in snap.documents {
+                    let ob = Earns()
+                    ob.Number = Int(q.get("NumberOfResete") as! String)!
+                    ob.Date = (q.get("DateOfResete") as! String)
+                    ob.Total = (q.get("TotalResete") as! String)
+                    ob.Currency = (q.get("Currency") as! String)
+                    ob.type = (q.get("Type") as! String)
+                    ob.Note = (q.get("NoteOfResete") as! String)
+                    ob.target = (q.get("Target") as! String)
+                    self.CashingArr.append(ob)
+                    self.salarypageview.tableView.reloadData()
+                }
+                RappleActivityIndicatorView.stopAnimation()
+            }
+        }
     }
     
     // MARK:- TODO:- This Method For Add GuesterAction
@@ -140,13 +130,27 @@ extension SalaryPageViewController: UITableViewDataSource {
         let cell: CashingCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CashingCell
         
         cell.NumberofResete.text = String(CashingArr[indexPath.row].Number)
-        cell.DateofResete.text = CashingArr[indexPath.row].Name
-        cell.TotalLabel.text = CashingArr[indexPath.row].Total
+        cell.DateofResete.text = CashingArr[indexPath.row].Date
+       // let x = (Int(CashingArr[indexPath.row].Total))
+        cell.TotalLabel.text =  CashingArr[indexPath.row].Total /*String((Int(CashingArr[indexPath.row].Total) ?? 100))*/ + "\n" + CashingArr[indexPath.row].Currency
         cell.NoteLabel.text = CashingArr[indexPath.row].Note ?? ""
-        cell.TypeLabel.text = CashingArr[indexPath.row].type
+        cell.TypeLabel.text = CashingArr[indexPath.row].type + " - \n" + CashingArr[indexPath.row].target
         
         return cell
     }
     
     
+}
+
+extension SalaryPageViewController: SendChange {
+    
+    func ReloadData(X: Bool) {
+        
+        if X == true {
+            self.CashingArr.removeAll()
+            self.LoadData()
+        }
+        
+    }
+
 }

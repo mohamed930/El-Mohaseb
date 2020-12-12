@@ -10,8 +10,13 @@ import UIKit
 import YCActionSheetDatePicker
 import RappleProgressHUD
 import Firebase
+import FirebaseAuth
 import FirebaseFirestore
 import ProgressHUD
+
+protocol SendChange {
+    func ReloadData (X:Bool)
+}
 
 class EarnsPageViewController: UIViewController {
     
@@ -25,6 +30,7 @@ class EarnsPageViewController: UIViewController {
     var type = String()
     var CurrentDate: String?
     var Action = false
+    var delegate: SendChange?
     
     var ColumnArray = Array<Cashing>()
     
@@ -162,7 +168,9 @@ class EarnsPageViewController: UIViewController {
                         "EarnsID": id.uuidString,
                         "TotalResete": self.earnspageview.TotalLabel.text!,
                         "Type": "قبض",
-                        "Target": "الصندوق"
+                        "Target": "الصندوق",
+                        "Currency": "محلي",
+                        "UserName": (Auth.auth().currentUser?.email!)!
                    ] as [String:Any]
         }
         else if self.type == "Cash" {
@@ -173,7 +181,9 @@ class EarnsPageViewController: UIViewController {
                         "EarnsID": id.uuidString,
                         "TotalResete": self.earnspageview.TotalLabel.text!,
                         "Type": "صرف",
-                        "Target": "الصندوق"
+                        "Target": "الصندوق",
+                        "Currency": "محلي",
+                        "UserName": (Auth.auth().currentUser?.email!)!
                    ] as [String:Any]
         }
         
@@ -199,6 +209,7 @@ class EarnsPageViewController: UIViewController {
                             if  i == (self.ColumnArray.count - 1) {
                                 RappleActivityIndicatorView.stopAnimation()
                                 ProgressHUD.showSuccess("Added Successfully")
+                                self.delegate?.ReloadData(X: true)
                                 self.dismiss(animated: true, completion: nil)
                             }
                            

@@ -10,8 +10,10 @@ import Foundation
 
 class Earns {
     var Number = Int()
-    var Name = String()
+    var Date = String()
     var Total = String()
+    var Currency = String()
     var Note: String?
     var type = String()
+    var target = String()
 }

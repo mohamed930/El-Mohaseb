@@ -46,12 +46,14 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="٩٠ دولار" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CU-B4-UyV">
-                        <rect key="frame" x="171" y="13" width="55" height="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CU-B4-UyV">
+                        <rect key="frame" x="171" y="5" width="55" height="29"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="55" id="OA2-E0-JHE"/>
-                            <constraint firstAttribute="height" constant="14" id="cE6-JH-fDg"/>
+                            <constraint firstAttribute="height" constant="29" id="cE6-JH-fDg"/>
                         </constraints>
+                        <string key="text">٩٠
+دولار</string>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -84,7 +86,7 @@
                     <constraint firstItem="rJL-Ot-Vvu" firstAttribute="leading" secondItem="9CU-B4-UyV" secondAttribute="trailing" constant="16" id="DzW-1c-M9a"/>
                     <constraint firstItem="DyD-sI-Huy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="E2t-Tj-Tff"/>
                     <constraint firstItem="rJL-Ot-Vvu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="JwM-2J-bv9"/>
-                    <constraint firstItem="9CU-B4-UyV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="OXF-bM-cIq"/>
+                    <constraint firstItem="9CU-B4-UyV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="OXF-bM-cIq"/>
                     <constraint firstAttribute="trailing" secondItem="pnj-4P-nGC" secondAttribute="trailing" id="RtO-KU-KD1"/>
                     <constraint firstItem="Pzg-jM-auF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="WWF-60-idh"/>
                     <constraint firstAttribute="bottom" secondItem="pnj-4P-nGC" secondAttribute="bottom" constant="0.5" id="ZH2-hm-fmg"/>
