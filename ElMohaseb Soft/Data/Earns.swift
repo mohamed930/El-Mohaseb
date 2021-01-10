@@ -16,4 +16,5 @@ class Earns {
     var Note: String?
     var type = String()
     var target = String()
+    var ID = String()
 }

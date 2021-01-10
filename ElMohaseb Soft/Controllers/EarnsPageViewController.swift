@@ -31,6 +31,7 @@ class EarnsPageViewController: UIViewController {
     var CurrentDate: String?
     var Action = false
     var delegate: SendChange?
+    var PickedResete: Earns?
     
     var ColumnArray = Array<Cashing>()
     
@@ -62,7 +63,12 @@ class EarnsPageViewController: UIViewController {
     }
     
     @IBAction func BTNSave (_ sender:Any) {
-        Save()
+        if Action == false {
+            Save()
+        }
+        else {
+            update()
+        }
     }
     
     @IBAction func switchButtonChanged (sender: UISwitch) {
@@ -116,21 +122,25 @@ class EarnsPageViewController: UIViewController {
     
     // MARK:- TODO:- Load Resete Data.
     func GetDate () {
-        let ob = Cashing()
-        ob.Name = "Mohamed Ali"
-        ob.price = 11.2
-        self.ColumnArray.append(ob)
         
-        let ob1 = Cashing()
-        ob1.Name = "Zyad"
-        ob1.price = 15
-        self.ColumnArray.append(ob1)
+        RappleActivityIndicatorView.startAnimatingWithLabel("loading", attributes: RappleModernAttributes)
+        self.earnspageview.NumberTextField.text = String(self.PickedResete!.Number)
+        self.earnspageview.NoteTextField.text = self.PickedResete!.Note
+        self.earnspageview.DateButton.setTitle(self.PickedResete!.Date , for: .normal)
+        self.earnspageview.TotalLabel.text = self.PickedResete!.Total
+        self.earnspageview.TypeLabel.text = self.PickedResete!.type
         
-        let ob2 = Cashing()
-        ob2.Name = "Kamel El-wazear"
-        ob2.price = 20.66
-        ob2.Note = "It's a good time!"
-        self.ColumnArray.append(ob2)
+        Firebase.publicreadWithWhereCondtion(collectionName: "EarnsElements", key: "ReseteID", value: self.PickedResete!.ID) { (snapsot) in
+            for i in snapsot.documents {
+                let ob = Cashing()
+                ob.Name = (i.get("Title") as! String)
+                ob.price = (i.get("Price") as! Double)
+                ob.Note = (i.get("Note") as! String)
+                self.ColumnArray.append(ob)
+                self.earnspageview.tableView.reloadData()
+            }
+            RappleActivityIndicatorView.stopAnimation()
+        }
     }
     
     // MARK:- TODO:- This Method For Show if he wanna to know save or not.
@@ -145,7 +155,12 @@ class EarnsPageViewController: UIViewController {
             
             // MARK:- TODO:- Make Method Call SaveFullTableData To Save Data To Database.
             print("Saved!")
-            self.Save()
+            if self.Action == false {
+                self.Save()
+            }
+            else {
+                self.update()
+            }
             
             
         }))
@@ -220,6 +235,10 @@ class EarnsPageViewController: UIViewController {
                 
             }
         }
+        
+    }
+    
+    func update() {
         
     }
     

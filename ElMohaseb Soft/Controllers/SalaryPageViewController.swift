@@ -101,6 +101,7 @@ class SalaryPageViewController: UIViewController {
                     ob.type = (q.get("Type") as! String)
                     ob.Note = (q.get("NoteOfResete") as! String)
                     ob.target = (q.get("Target") as! String)
+                    ob.ID = (q.get("EarnsID") as! String)
                     self.CashingArr.append(ob)
                     self.salarypageview.tableView.reloadData()
                 }
@@ -116,7 +117,15 @@ class SalaryPageViewController: UIViewController {
 }
 
 extension SalaryPageViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: "Main", bundle: nil)
+        let next = vc.instantiateViewController(withIdentifier: "Earns Page") as! EarnsPageViewController
+        next.Action = true
+        //next.PickedReseteID = self.CashingArr[indexPath.row].
+        next.modalPresentationStyle = .fullScreen
+        next.PickedResete = self.CashingArr[indexPath.row]
+        self.present(next, animated: true, completion: nil)
+    }
 }
 
 extension SalaryPageViewController: UITableViewDataSource {
