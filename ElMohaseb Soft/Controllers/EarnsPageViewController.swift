@@ -130,6 +130,13 @@ class EarnsPageViewController: UIViewController {
         self.earnspageview.TotalLabel.text = self.PickedResete!.Total
         self.earnspageview.TypeLabel.text = self.PickedResete!.type
         
+        if self.PickedResete!.type == "قبض" {
+            self.type = "Earns"
+        }
+        else {
+            self.type = "Cash"
+        }
+        
         Firebase.publicreadWithWhereCondtion(collectionName: "EarnsElements", key: "ReseteID", value: self.PickedResete!.ID) { (snapsot) in
             for i in snapsot.documents {
                 let ob = Cashing()
@@ -240,6 +247,81 @@ class EarnsPageViewController: UIViewController {
     
     func update() {
         
+        RappleActivityIndicatorView.startAnimatingWithLabel("loading", attributes: RappleModernAttributes)
+        
+        var data = [String:Any]()
+        
+        if self.type == "Earns" {
+            data = [
+                        "NumberOfResete": self.earnspageview.NumberTextField.text!,
+                        "NoteOfResete": self.earnspageview.NoteTextField.text!,
+                        "DateOfResete": self.CurrentDate!,
+                        "TotalResete": self.earnspageview.TotalLabel.text!,
+                        "Type": "قبض",
+                        "Target": "الصندوق",
+                        "Currency": "محلي",
+                        "UserName": (Auth.auth().currentUser?.email!)!
+                   ] as [String:Any]
+        }
+        else if self.type == "Cash" {
+            data = [
+                        "NumberOfResete": self.earnspageview.NumberTextField.text!,
+                        "NoteOfResete": self.earnspageview.NoteTextField.text!,
+                        "DateOfResete": self.CurrentDate!,
+                        "TotalResete": self.earnspageview.TotalLabel.text!,
+                        "Type": "صرف",
+                        "Target": "الصندوق",
+                        "Currency": "محلي",
+                        "UserName": (Auth.auth().currentUser?.email!)!
+                   ] as [String:Any]
+        }
+        
+        Firebase.updateDocumnt(collectionName: "CashingResetes", documntId: self.PickedResete!.ID, data: data) { (result) in
+            
+            // He didn't Change Any Elemnts in resete.
+            if self.earnspageview.TotalLabel.text == self.PickedResete?.Total {
+                RappleActivityIndicatorView.stopAnimation()
+                self.delegate?.ReloadData(X: true)
+                self.dismiss(animated: true, completion: nil)
+            }
+            else {
+                // Changed in Resete Element
+                for i in 0...(self.ColumnArray.count - 1) {
+                    
+                    if self.ColumnArray[i].status == "Old" {
+                        // Check if it's value changed or not.
+                        
+                    }
+                    else {
+                        // Addded To Resete ofcourse.
+                        
+                        let dataElement = [
+                                            "Title":self.ColumnArray[i].Name,
+                                            "Price": self.ColumnArray[i].price,
+                                            "Note": self.ColumnArray[i].Note ?? "",
+                                            "ReseteID": self.PickedResete!.ID
+                                         ] as [String : Any]
+                        
+                        Firebase.addData1(collectionName: "EarnsElements", documentID: self.PickedResete!.ID, data: dataElement) { (q) in
+                            if q == "Success" {
+                                
+                                if i == (self.ColumnArray.count - 1) {
+                                    RappleActivityIndicatorView.stopAnimation()
+                                    self.delegate?.ReloadData(X: true)
+                                    self.dismiss(animated: true, completion: nil)
+                                }
+                                
+                            }
+                            else {
+                                RappleActivityIndicatorView.stopAnimation()
+                                ProgressHUD.showError("Error in your Connection!")
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
     }
     
     private func createActionSheetDatePicker() -> YCActionSheetDatePickerVC {

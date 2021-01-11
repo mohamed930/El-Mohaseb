@@ -12,4 +12,5 @@ class Cashing {
     var Name = String()
     var price = Double()
     var Note: String?
+    var status = String()
 }
